@@ -19,20 +19,6 @@ public class MainPresenter implements IMainContract.IMainPresenter {
     }
 
     @Override
-    public void startToActivity(int type) {
-        switch (type){
-            case 0:
-                mView.toastMessage("第一个Activity");
-                break;
-            case 1:
-                mView.toastMessage("第二个Activity");
-                break;
-            default:
-                mView.toastMessage("未实现的例子");
-        }
-    }
-
-    @Override
     public void initList() {
         mView.initList(mModel.getRecordList());
     }

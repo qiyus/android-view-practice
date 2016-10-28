@@ -22,7 +22,7 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
      * 初始化列表数据。
      */
     private void initData() {
-        addRecord(0, "多种风格的进度条使用展示。", "2016-10-21");
+        addRecord(0, "利用log查看activity的生命周期、onSaveInstanceState等方法的调用顺序。", "2016-10-28");
         addRecord(1, "多种风格的进度条使用展示。", "2016-10-21");
         addRecord(3, "多种风格的进度条使用展示。", "2016-10-21");
         addRecord(4, "多种风格的进度条使用展示。", "2016-10-21");

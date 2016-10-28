@@ -13,16 +13,15 @@ public interface IMainContract {
 
     interface IMainView {
         void initList(List<ViewDataItem> data);
-        void toastMessage(String message);
+        void toNextActivity(int type);
+        void message(String message);
     }
 
     /**
      * Created by songlei on 16/10/20.
      */
-
     interface IMainPresenter {
         void initList();
-        void startToActivity(int type);
     }
 
     /**

@@ -1,6 +1,8 @@
 package com.vigorx.viewdemo.mainview;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.vigorx.viewdemo.R;
+import com.vigorx.viewdemo.lifecycle.LifeCycleActivity;
 import com.vigorx.viewdemo.recyclerview.DividerItemDecoration;
 import com.vigorx.viewdemo.recyclerview.ItemClickSupport;
 
@@ -40,18 +43,15 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
         mRecyclerView = (RecyclerView) findViewById(R.id.main_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-//        mLayoutManager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         mAdapter = new ViewListAdapter(data);
         mRecyclerView.setAdapter(mAdapter);
 
+        // 设置点击事件可以有2种方法，注释掉一种。
 //        mRecyclerView.addOnItemTouchListener(new OnItemTouchListener(mRecyclerView) {
 //            @Override
 //            public void onItemClick(RecyclerView.ViewHolder vh) {
-//                String message = "position:" + vh.getAdapterPosition();
-//                Snackbar snackbar = Snackbar.make(mRecyclerView, message, Snackbar.LENGTH_LONG);
-//                snackbar.show();
 //            }
 //        });
 
@@ -59,14 +59,29 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
         mSupport.setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                mPresenter.startToActivity(data.get(position).getType());
+                toNextActivity(data.get(position).getType());
             }
         });
     }
 
     @Override
-    public void toastMessage(String message) {
-        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+    public void message(String message) {
+        Snackbar snackbar = Snackbar.make(mRecyclerView, message, Snackbar.LENGTH_LONG);
+        snackbar.show();
+    }
+
+    @Override
+    public void toNextActivity(int type) {
+        switch (type){
+            case 0:
+                startActivity(new Intent(this, LifeCycleActivity.class));
+                break;
+            case 1:
+                message("第二个Activity");
+                break;
+            default:
+                message("未实现的例子");
+        }
     }
 
     @Override
