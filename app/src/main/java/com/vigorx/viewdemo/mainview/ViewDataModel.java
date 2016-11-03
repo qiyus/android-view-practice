@@ -22,12 +22,19 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
      * 初始化列表数据。
      */
     private void initData() {
-        addRecord(0, "利用log查看activity的生命周期、onSaveInstanceState等方法的调用顺序。", "2016-10-28");
-        addRecord(1, "多种风格的进度条使用展示。", "2016-10-21");
-        addRecord(3, "多种风格的进度条使用展示。", "2016-10-21");
-        addRecord(4, "多种风格的进度条使用展示。", "2016-10-21");
-        addRecord(5, "多种风格的进度条使用展示。", "2016-10-21");
-        addRecord(6, "多种风格的进度条使用展示。", "2016-10-29");
+        addRecord(0, "利用log查看activity的事件顺序，SnackBar、PopupWindow、PopupMenu、AlertDialog对事件的影响。", "2016-10-28");
+        addRecord(1, "对话框的使用。", "2016-10-21");
+        addRecord(3, "进度条的使用。", "2016-10-21");
+        addRecord(4, "SurfaceView的使用。", "2016-10-21");
+        addRecord(5, "Viewpager的使用。", "2016-10-21");
+        addRecord(6, "Viewflipper的使用。", "2016-10-29");
+        addRecord(7, "CardView的使用。", "2016-10-29");
+        addRecord(8, "PopupWindow和PopupMenu的使用", "2016-11-11");
+        addRecord(9, "Android Notification通知栏", "2016-11-12");
+        addRecord(10, "调用另一个activity", "2016-11-13");
+        addRecord(11, "PullRefreshView的使用", "2016-12-12");
+        addRecord(12, "PdfView的使用", "2016-12-12");
+        addRecord(13, "PdfView的使用", "2016-12-12");
     }
 
     /**

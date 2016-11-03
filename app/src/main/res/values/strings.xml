@@ -1,4 +1,27 @@
 <resources>
     <string name="app_name">android viewdemo</string>
     <string name="action_settings">Settings</string>
+
+    <!--lifecycle-->
+    <string name="activity_name_lifecycle">life cycle</string>
+    <string name="log_lifecycle_create">onCreate</string>
+    <string name="text_lifecycle_separator">", "</string>
+    <string name="dialog_lifecycle_title">对话框</string>
+    <string name="dialog_lifecycle_message">请在log输出中确认当前Activity的生命周期</string>
+    <string name="dialog_lifecycle_ok">ok</string>
+    <string name="dialog_lifecycle_cancel">cancel</string>
+    <string name="snack_lifecycle_ok_message">输出一条log记录。</string>
+    <string name="snack_lifecycle_cancel_message">就这样吧，什么也不想做。</string>
+    <string name="log_lifecycle_snack_ok">snack bar action</string>
+    <string name="log_lifecycle_save">onSaveInstanceState</string>
+    <string name="log_lifecycle_restore">onRestoreInstanceState</string>
+    <string name="log_lifecycle_configuration">onConfigurationChanged</string>
+    <string name="log_lifecycle_resume">onResume</string>
+    <string name="log_lifecycle_start">onStart</string>
+    <string name="log_lifecycle_pause">onPause</string>
+    <string name="log_lifecycle_restart">onRestart</string>
+    <string name="log_lifecycle_stop">onStop</string>
+    <string name="log_lifecycle_destroy">onDestroy</string>
+    <string name="log_lifecycle_dismiss_d">dialog dismiss</string>
+    <string name="log_lifecycle_dismiss_w">window dismiss</string>
 </resources>

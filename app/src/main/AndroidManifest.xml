@@ -21,6 +21,7 @@
         <activity android:name=".dialog.DialogActivity"></activity>
         <activity
             android:name=".lifecycle.LifeCycleActivity"
+            android:label="@string/activity_name_lifecycle"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"></activity>
     </application>
 

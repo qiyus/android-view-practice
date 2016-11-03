@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/lifecycle_menu1"
+        android:icon="@android:drawable/btn_minus"
+        android:title="今天早点睡" />
+    <item
+        android:id="@+id/lifecycle_menu2"
+        android:icon="@android:drawable/btn_radio"
+        android:title="困却睡不着" />
+    <item
+        android:id="@+id/lifecycle_menu3"
+        android:icon="@android:drawable/btn_star"
+        android:title="我想数星星" />
+</menu>
