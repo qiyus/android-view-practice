@@ -1,68 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/list_margin"
+        android:background="@color/colorBackground"
         android:orientation="vertical"
-        android:id="@+id/linear"
-        android:background="@color/colorAccent">
+        android:padding="10dp">
 
-        <TextView
-            android:text="left,top"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
-            android:id="@+id/textView" />
+        <Button
+            android:id="@+id/locationButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="layout location" />
 
         <ToggleButton
-            android:text="ToggleButton"
+            android:id="@+id/toggleButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:textOff="local"
-            android:textOn="global"
-            android:id="@+id/toggleButton" />
+            android:textOff="off"
+            android:textOn="on" />
 
         <Button
-            android:text="dialog"
+            android:id="@+id/buttonDialog"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:id="@+id/buttonDialog" />
-        <Button
-            android:text="popupwindow"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:id="@+id/buttonPopupWindow" />
-        <Button
-            android:text="popupmenu"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:id="@+id/buttonPopupMenu" />
+            android:text="dialog" />
 
         <Button
-            android:text="exit"
+            android:id="@+id/buttonPopupWindow"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:id="@+id/buttonExit" />
+            android:text="popupwindow" />
+
+        <Button
+            android:id="@+id/buttonPopupMenu"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="popupmenu" />
+
+        <Button
+            android:id="@+id/buttonExit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="exit" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_green_light"
+            android:padding="5dp" />
 
         <TextView
-            android:text="right,bottom"
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:gravity="right|bottom"
-            android:id="@+id/textView2" />
+            android:layout_height="wrap_content"
+            android:text="getLocalVisibleRect:" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="getGlobalVisibleRect:" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="getLocationOnScreen:" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lgetLocationInWindow:" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_green_light"
+            android:padding="5dp" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:src="@android:drawable/star_big_on" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="3"
+            android:stepSize="1" />
     </LinearLayout>
 </LinearLayout>

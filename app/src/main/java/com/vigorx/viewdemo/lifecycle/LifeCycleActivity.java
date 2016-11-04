@@ -1,26 +1,31 @@
 package com.vigorx.viewdemo.lifecycle;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.PopupWindow;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -32,14 +37,21 @@ import com.vigorx.viewdemo.R;
 
 public class LifeCycleActivity extends AppCompatActivity {
     private final static String TAG = "com.vigorx.lifecycle";
-    private TextView mLeftTop;
-    private TextView mRightBottom;
+    private TextView mTextView1;
+    private TextView mTextView2;
+    private TextView mTextView3;
+    private TextView mTextView4;
+    private ImageView mStar;
+    private RatingBar mRatingBar;
+    private Button mLocationButton;
     private ToggleButton mToggleButton;
     private Button mDialogButton;
     private Button mPopupMenuButton;
     private Button mPopupWindowButton;
     private Button mExitButton;
     private LinearLayout mLayout;
+    private PopupWindow mPopupWindow;
+    private PopupMenu mPopupMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +59,45 @@ public class LifeCycleActivity extends AppCompatActivity {
         Log.i(TAG, getString(R.string.log_lifecycle_create));
 
         setContentView(R.layout.activity_lifecycle);
-        mLeftTop = (TextView) findViewById(R.id.textView);
-        mRightBottom = (TextView) findViewById(R.id.textView2);
+        mTextView1 = (TextView) findViewById(R.id.textView1);
+        mTextView2 = (TextView) findViewById(R.id.textView2);
+        mTextView3 = (TextView) findViewById(R.id.textView3);
+        mTextView4 = (TextView) findViewById(R.id.textView4);
         mLayout = (LinearLayout) findViewById(R.id.linear);
+        mLocationButton = (Button) findViewById(R.id.locationButton);
+        mStar = (ImageView) findViewById(R.id.star);
+        mRatingBar = (RatingBar) findViewById(R.id.ratingBar);
+
+        // 显示layout坐标
+        mLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Rect rect = new Rect();
+                mLayout.getLocalVisibleRect(rect);
+                mTextView1.setText(mTextView1.getText() + rect.toString());
+
+                mLayout.getGlobalVisibleRect(rect);
+                mTextView2.setText(mTextView2.getText() + rect.toString());
+
+                int[] location = new int[2];
+                mLayout.getLocationOnScreen(location);
+                mTextView3.setText(mTextView3.getText() + "x," + location[0] + "; y," + location[1]);
+                mLayout.getLocationInWindow(location);
+                mTextView4.setText(mTextView4.getText() + "x," + location[0] + "; y," + location[1]);
+            }
+        });
 
         // ToggleButton点击的处理。
+
         mToggleButton = (ToggleButton) findViewById(R.id.toggleButton);
         mToggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Rect rect = new Rect();
                 if (mToggleButton.isChecked()) {
-                    mLayout.getLocalVisibleRect(rect);
+                    mStar.setImageResource(android.R.drawable.star_big_on);
                 } else {
-                    mLayout.getGlobalVisibleRect(rect);
+                    mStar.setImageResource(android.R.drawable.star_big_off);
                 }
-                mLeftTop.setText(rect.left + getString(R.string.text_lifecycle_separator) + rect.top);
-                mRightBottom.setText(rect.right + getString(R.string.text_lifecycle_separator) + rect.bottom);
             }
         });
 
@@ -114,8 +148,8 @@ public class LifeCycleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 设置list表示内容
-                View container = getLayoutInflater().inflate(R.layout.popupwindow_lifecycle, null);
-                String[] data = new String[]{"one", "two", "three", "four"};
+                final View container = getLayoutInflater().inflate(R.layout.popupwindow_lifecycle, null);
+                String[] data = new String[]{"one", "two", "three", "four", "five"};
                 ListView listView = (ListView) container.findViewById(R.id.popup_window);
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(LifeCycleActivity.this,
                         R.layout.support_simple_spinner_dropdown_item, data);
@@ -124,24 +158,28 @@ public class LifeCycleActivity extends AppCompatActivity {
                 // 设置listview分隔线颜色。
                 listView.setDivider(new ColorDrawable(Color.YELLOW));
                 listView.setDividerHeight(1);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        mRatingBar.setRating(position + 1);
+                    }
+                });
 
                 // 创建popup window
-                PopupWindow popupWindow = new PopupWindow(container,
+                mPopupWindow = new PopupWindow(container,
                         500,
-                        LinearLayout.LayoutParams.WRAP_CONTENT, true);
-                popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                        WindowManager.LayoutParams.WRAP_CONTENT, true);
+                mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
                     @Override
                     public void onDismiss() {
                         Log.i(TAG, getString(R.string.log_lifecycle_dismiss_w));
                     }
                 });
 
-                /*// 模态窗口
-                popupWindow.setFocusable(false);
-                popupWindow.setOutsideTouchable(false);*/
-
                 // 显示popup window
-                popupWindow.showAsDropDown(mPopupWindowButton);
+                int[] location = new int[2];
+                mLocationButton.getLocationInWindow(location);
+                mPopupWindow.showAsDropDown(mLocationButton, mLocationButton.getWidth(), -mLocationButton.getHeight());
             }
         });
 
@@ -150,17 +188,16 @@ public class LifeCycleActivity extends AppCompatActivity {
         mPopupMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(LifeCycleActivity.this, mPopupMenuButton);
-                popupMenu.getMenuInflater().inflate(R.menu.menu_lifecycle_popup, popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                mPopupMenu = new PopupMenu(LifeCycleActivity.this, mPopupMenuButton);
+                mPopupMenu.getMenuInflater().inflate(R.menu.menu_lifecycle_popup, mPopupMenu.getMenu());
+                mPopupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        Snackbar snackbar = Snackbar.make(mPopupMenuButton, item.getTitle(), Snackbar.LENGTH_SHORT);
-                        snackbar.show();
+                        mRatingBar.setRating(item.getOrder());
                         return true;
                     }
                 });
-                popupMenu.show();
+                mPopupMenu.show();
             }
         });
 
@@ -172,6 +209,33 @@ public class LifeCycleActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        // context menu
+        mStar.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+            @Override
+            public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+                menu.setHeaderTitle("star setting");
+                menu.add(0, Menu.FIRST, 0, "on");
+                menu.add(0, Menu.FIRST + 1, 1, "off");
+            }
+        });
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case Menu.FIRST:
+                mStar.setImageResource(android.R.drawable.star_big_on);
+                break;
+            case Menu.FIRST + 1:
+                mStar.setImageResource(android.R.drawable.star_big_off);
+                break;
+            default:
+                break;
+        }
+
+        return super.onContextItemSelected(item);
     }
 
     @Override

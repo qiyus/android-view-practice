@@ -2,14 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/lifecycle_menu1"
-        android:icon="@android:drawable/btn_minus"
-        android:title="今天早点睡" />
+        android:orderInCategory="1"
+        android:title="one" />
     <item
         android:id="@+id/lifecycle_menu2"
-        android:icon="@android:drawable/btn_radio"
-        android:title="困却睡不着" />
+        android:orderInCategory="2"
+        android:title="two" />
     <item
         android:id="@+id/lifecycle_menu3"
-        android:icon="@android:drawable/btn_star"
-        android:title="我想数星星" />
+        android:orderInCategory="3"
+        android:title="three" />
+    <item
+        android:id="@+id/lifecycle_menu4"
+        android:orderInCategory="4"
+        android:title="four" />
+    <item
+        android:id="@+id/lifecycle_menu5"
+        android:orderInCategory="5"
+        android:title="five" />
 </menu>
