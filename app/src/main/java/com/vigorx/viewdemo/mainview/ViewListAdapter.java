@@ -43,7 +43,7 @@ public class ViewListAdapter extends RecyclerView.Adapter<ViewListAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         ViewDataItem item = mData.get(position);
         holder.mTitle.setText(item.getTitle());
-        holder.mDate.setText(item.getDate());
+        holder.mDate.setText(item.getDetail());
     }
 
     @Override

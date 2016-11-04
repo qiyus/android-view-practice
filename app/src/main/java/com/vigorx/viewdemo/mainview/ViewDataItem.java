@@ -6,7 +6,7 @@ package com.vigorx.viewdemo.mainview;
 
 public class ViewDataItem {
     private String title;
-    private String date;
+    private String detail;
     private int type;
 
     public String getTitle() {
@@ -17,12 +17,12 @@ public class ViewDataItem {
         this.title = title;
     }
 
-    public String getDate() {
-        return date;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     public int getType() {

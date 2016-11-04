@@ -22,19 +22,17 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
      * 初始化列表数据。
      */
     private void initData() {
-        addRecord(0, "利用log查看activity的事件顺序，SnackBar、PopupWindow、PopupMenu、AlertDialog对事件的影响。", "2016-10-28");
+        addRecord(0, "查看activity的事件调用顺序。", "AlertDialog|PopupWindow|PopupMenu|ContextMenu|RatingBar|ToggleButton");
         addRecord(1, "对话框的使用。", "2016-10-21");
-        addRecord(3, "进度条的使用。", "2016-10-21");
-        addRecord(4, "SurfaceView的使用。", "2016-10-21");
+        addRecord(2, "进度条的使用。", "2016-10-21");
+        addRecord(3, "SurfaceView的使用。", "2016-10-21");
+        addRecord(4, "CardView的使用。", "2016-10-29");
         addRecord(5, "Viewpager的使用。", "2016-10-21");
-        addRecord(6, "Viewflipper的使用。", "2016-10-29");
-        addRecord(7, "CardView的使用。", "2016-10-29");
-        addRecord(8, "PopupWindow和PopupMenu的使用", "2016-11-11");
-        addRecord(9, "Android Notification通知栏", "2016-11-12");
-        addRecord(10, "调用另一个activity", "2016-11-13");
-        addRecord(11, "PullRefreshView的使用", "2016-12-12");
-        addRecord(12, "PdfView的使用", "2016-12-12");
-        addRecord(13, "PdfView的使用", "2016-12-12");
+        addRecord(6, "ViewFlipper的使用。", "2016-10-29");
+        addRecord(7, "Android Notification通知栏的使用", "2016-11-12");
+        addRecord(8, "PullRefreshView的使用", "2016-12-12");
+        addRecord(9, "PdfView的使用", "2016-12-12");
+        addRecord(10, "动画的处理。", "描述");
     }
 
     /**
@@ -42,11 +40,11 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
      * @param title 标题
      * @param date 日期
      */
-    private void addRecord(int type, String title, String date) {
+    private void addRecord(int type, String title, String detail) {
         ViewDataItem item = new ViewDataItem();
         item.setType(type);
         item.setTitle(title);
-        item.setDate(date);
+        item.setDetail(detail);
         mData.add(item);
     }
 

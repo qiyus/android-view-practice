@@ -5,7 +5,6 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -19,7 +18,6 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -54,7 +52,7 @@ public class LifeCycleActivity extends AppCompatActivity {
     private PopupMenu mPopupMenu;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, getString(R.string.log_lifecycle_create));
 
@@ -73,17 +71,16 @@ public class LifeCycleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Rect rect = new Rect();
-                mLayout.getLocalVisibleRect(rect);
-                mTextView1.setText(mTextView1.getText() + rect.toString());
-
-                mLayout.getGlobalVisibleRect(rect);
-                mTextView2.setText(mTextView2.getText() + rect.toString());
+                mLocationButton.getLocalVisibleRect(rect);
+                mTextView1.setText("getLocalVisibleRect:" + rect.toString());
+                mLocationButton.getGlobalVisibleRect(rect);
+                mTextView2.setText("getGlobalVisibleRect:" + rect.toString());
 
                 int[] location = new int[2];
-                mLayout.getLocationOnScreen(location);
-                mTextView3.setText(mTextView3.getText() + "x," + location[0] + "; y," + location[1]);
-                mLayout.getLocationInWindow(location);
-                mTextView4.setText(mTextView4.getText() + "x," + location[0] + "; y," + location[1]);
+                mLocationButton.getLocationOnScreen(location);
+                mTextView3.setText("getLocationOnScreen:x," + location[0] + "; y," + location[1]);
+                mLocationButton.getLocationInWindow(location);
+                mTextView4.setText("getLocationInWindow:x," + location[0] + "; y," + location[1]);
             }
         });
 
@@ -94,9 +91,9 @@ public class LifeCycleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mToggleButton.isChecked()) {
-                    mStar.setImageResource(android.R.drawable.star_big_on);
-                } else {
                     mStar.setImageResource(android.R.drawable.star_big_off);
+                } else {
+                    mStar.setImageResource(android.R.drawable.star_big_on);
                 }
             }
         });
@@ -166,15 +163,16 @@ public class LifeCycleActivity extends AppCompatActivity {
                 });
 
                 // 创建popup window
-                mPopupWindow = new PopupWindow(container,
-                        500,
-                        WindowManager.LayoutParams.WRAP_CONTENT, true);
+                mPopupWindow = new PopupWindow(container, 400,
+                        WindowManager.LayoutParams.WRAP_CONTENT,
+                        true);
                 mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
                     @Override
                     public void onDismiss() {
                         Log.i(TAG, getString(R.string.log_lifecycle_dismiss_w));
                     }
                 });
+                mPopupWindow.setAnimationStyle(R.style.anim_popup_window);
 
                 // 显示popup window
                 int[] location = new int[2];

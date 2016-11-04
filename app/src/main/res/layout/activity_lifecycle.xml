@@ -17,7 +17,7 @@
             android:id="@+id/locationButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="layout location" />
+            android:text="location" />
 
         <ToggleButton
             android:id="@+id/toggleButton"
@@ -78,7 +78,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="lgetLocationInWindow:" />
+            android:text="getLocationInWindow:" />
 
         <View
             android:layout_width="match_parent"
@@ -98,6 +98,7 @@
             style="@style/Widget.AppCompat.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/ratingbar_drawable"
             android:numStars="5"
             android:rating="3"
             android:stepSize="1" />
