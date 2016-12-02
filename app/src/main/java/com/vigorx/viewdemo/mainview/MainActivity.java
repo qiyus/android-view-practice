@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import com.vigorx.viewdemo.R;
+import com.vigorx.viewdemo.dialog.DialogActivity;
 import com.vigorx.viewdemo.lifecycle.LifeCycleActivity;
 import com.vigorx.viewdemo.recyclerview.DividerItemDecoration;
 import com.vigorx.viewdemo.recyclerview.ItemClickSupport;
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
                 startActivity(new Intent(this, LifeCycleActivity.class));
                 break;
             case 1:
-                message("第二个Activity");
+                startActivity(new Intent(this, DialogActivity.class));
                 break;
             default:
                 message("未实现的例子");

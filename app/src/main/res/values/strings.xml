@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">android viewdemo</string>
+    <string name="app_name">view demo</string>
     <string name="action_settings">Settings</string>
 
     <!--lifecycle-->
@@ -24,4 +24,6 @@
     <string name="log_lifecycle_destroy">onDestroy</string>
     <string name="log_lifecycle_dismiss_d">dialog dismiss</string>
     <string name="log_lifecycle_dismiss_w">window dismiss</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
 </resources>

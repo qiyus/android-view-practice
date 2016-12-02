@@ -32,7 +32,7 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
         addRecord(7, "Android Notification通知栏的使用", "2016-11-12");
         addRecord(8, "PullRefreshView的使用", "2016-12-12");
         addRecord(9, "PdfView的使用", "2016-12-12");
-        addRecord(10, "动画的处理。", "描述");
+        addRecord(10, "Menu的使用。", "ContextMenu");
     }
 
     /**
