@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
             case 0:
                 startActivity(new Intent(this, LifeCycleActivity.class));
                 break;
-            case 1:
+            case 2:
                 startActivity(new Intent(this, DialogActivity.class));
                 break;
             default:

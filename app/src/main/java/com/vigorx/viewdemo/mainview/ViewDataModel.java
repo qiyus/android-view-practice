@@ -22,17 +22,17 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
      * 初始化列表数据。
      */
     private void initData() {
-        addRecord(0, "查看activity的事件调用顺序。", "AlertDialog|PopupWindow|PopupMenu|ContextMenu|RatingBar|ToggleButton");
-        addRecord(1, "对话框的使用。", "2016-10-21");
-        addRecord(2, "进度条的使用。", "2016-10-21");
-        addRecord(3, "SurfaceView的使用。", "2016-10-21");
-        addRecord(4, "CardView的使用。", "2016-10-29");
-        addRecord(5, "Viewpager的使用。", "2016-10-21");
-        addRecord(6, "ViewFlipper的使用。", "2016-10-29");
-        addRecord(7, "Android Notification通知栏的使用", "2016-11-12");
-        addRecord(8, "PullRefreshView的使用", "2016-12-12");
-        addRecord(9, "PdfView的使用", "2016-12-12");
-        addRecord(10, "Menu的使用。", "ContextMenu");
+        addRecord(0, "activity事件的调用顺序。", "AlertDialog|PopupWindow|PopupMenu|ContextMenu|RatingBar|ToggleButton");
+        addRecord(1, "Fragment事件的调用顺序。", "未学习");
+        addRecord(2, "DialogFragment的使用。", "DialogFragment|AlertDialog|SimpleCursorAdapter|CursorLoader|Contacts");
+        addRecord(3, "进度条的使用。", "未学习");
+        addRecord(4, "CardView的使用。", "未学习");
+        addRecord(5, "Viewpager的使用。", "未学习");
+        addRecord(6, "ViewFlipper的使用。", "未学习");
+        addRecord(7, "Android Notification通知栏的使用", "未学习");
+        addRecord(8, "PullRefreshView的使用", "未学习");
+        addRecord(9, "PdfView的使用", "未学习");
+        addRecord(10, "SurfaceView的使用。", "未学习");
     }
 
     /**

@@ -2,6 +2,7 @@ package com.vigorx.viewdemo.dialog;
 
 import android.Manifest;
 import android.app.DialogFragment;
+import android.app.FragmentTransaction;
 import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -13,14 +14,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.view.ContextMenu;
 import android.view.Gravity;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -34,10 +31,12 @@ import android.widget.Toast;
 import com.vigorx.viewdemo.R;
 
 public class DialogActivity extends ListActivity
-        implements LoaderManager.LoaderCallbacks<Cursor> {
+        implements LoaderManager.LoaderCallbacks<Cursor>,
+        LoginDialogFragment.OnLoginDialogListener {
 
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
-    private static final String[] ZONES = {"AlertDialog", "SingleChoiceDialog", "MultiChoiceDialog", "CustomDialog"};
+    private static final String[] MENUS =
+            {"AlertDialog", "SingleChoiceDialog", "MultiChoiceDialog", "LoginDialog", "CustomDialog"};
 
     // 检索结果
     private static final String[] PROJECTION = new String[]{ContactsContract.CommonDataKinds.Phone._ID,
@@ -50,6 +49,7 @@ public class DialogActivity extends ListActivity
 
     private String mSelectedItem;
     private SimpleCursorAdapter mAdapter;
+    private boolean mIsLarge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,8 @@ public class DialogActivity extends ListActivity
             initContacts();
         }
 
+        mIsLarge = getResources().getBoolean(R.bool.large_layout);
+
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -79,7 +81,7 @@ public class DialogActivity extends ListActivity
                 mSelectedItem = cursor.getString(columnIndex);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(DialogActivity.this);
-                builder.setItems(ZONES, new DialogInterface.OnClickListener() {
+                builder.setItems(MENUS, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
@@ -95,16 +97,25 @@ public class DialogActivity extends ListActivity
                             case 2:
                                 showDialog(new MultiChoiceDialogFragment(), mSelectedItem, "multi");
                                 break;
-
-                            // 自定义视图对话框
+                            // Login 对话框
                             case 3:
                                 showDialog(new LoginDialogFragment(), mSelectedItem, "login");
                                 break;
-
-                            //
+                            // 自定义视图对话框
                             case 4:
+                                CustomDialogFragment customDialogFragment = new CustomDialogFragment();
+                                android.app.FragmentManager fragmentManager = getFragmentManager();
+                                if (mIsLarge) {
+                                    customDialogFragment.show(fragmentManager, "custom");
+                                }
+                                else {
+                                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                                    transaction.add(android.R.id.content, customDialogFragment)
+                                            .addToBackStack(null)
+                                            .commit();
+                                }
                                 break;
-
                             default:
                         }
                     }
@@ -122,50 +133,6 @@ public class DialogActivity extends ListActivity
         bundle.putString("TITLE", title);
         dialogFragment.setArguments(bundle);
         dialogFragment.show(getFragmentManager(), tag);
-    }
-
-    /**
-     * 未注册，利用dialog替代。
-     * @param menu
-     * @param v
-     * @param menuInfo
-     */
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_menu_context, menu);
-        menu.setHeaderTitle("要标题干啥？");
-    }
-
-    /**
-     * 未注册，利用dialog替代。
-     * @param item
-     * @return
-     */
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        // ListView使用cursor时数据的取得。
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        int columnIndex = mAdapter.getCursor().getColumnIndex(
-                ContactsContract.CommonDataKinds.Contactables.DISPLAY_NAME);
-        Cursor cursor = (Cursor) mAdapter.getItem(info.position);
-        String displayName = cursor.getString(columnIndex);
-
-        switch (item.getItemId()) {
-            case R.id.context_menu1:
-                System.out.println(displayName);
-                return true;
-            case R.id.context_menu2:
-                Snackbar snackbar = Snackbar.make(getListView(), displayName, Snackbar.LENGTH_SHORT);
-                snackbar.show();
-                return true;
-            case R.id.context_menu3:
-                Toast.makeText(DialogActivity.this, displayName, Toast.LENGTH_SHORT).show();
-                return true;
-            default:
-                return super.onContextItemSelected(item);
-        }
     }
 
     @Override
@@ -231,5 +198,16 @@ public class DialogActivity extends ListActivity
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         // Do something when a list item is clicked
+    }
+
+    @Override
+    public void login(String username, String password) {
+        String message = username + "|" + password;
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void cancel() {
+        Toast.makeText(this, "回调OK", Toast.LENGTH_SHORT).show();
     }
 }
