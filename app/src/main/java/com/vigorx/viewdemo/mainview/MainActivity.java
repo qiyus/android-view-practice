@@ -13,8 +13,10 @@ import android.view.View;
 import com.vigorx.viewdemo.R;
 import com.vigorx.viewdemo.dialog.DialogActivity;
 import com.vigorx.viewdemo.lifecycle.LifeCycleActivity;
+import com.vigorx.viewdemo.progressbar.ProgressActivity;
 import com.vigorx.viewdemo.recyclerview.DividerItemDecoration;
 import com.vigorx.viewdemo.recyclerview.ItemClickSupport;
+import com.vigorx.viewdemo.viewpager.ViewPagerActivity;
 
 import java.util.List;
 
@@ -48,11 +50,11 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
         mRecyclerView.setAdapter(mAdapter);
 
         // 设置点击事件可以有2种方法，注释掉一种。
-//        mRecyclerView.addOnItemTouchListener(new OnItemTouchListener(mRecyclerView) {
-//            @Override
-//            public void onItemClick(RecyclerView.ViewHolder vh) {
-//            }
-//        });
+        /*mRecyclerView.addOnItemTouchListener(new OnItemTouchListener(mRecyclerView) {
+            @Override
+            public void onItemClick(RecyclerView.ViewHolder vh) {
+            }
+        });*/
 
         mSupport = ItemClickSupport.addTo(mRecyclerView);
         mSupport.setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
@@ -78,6 +80,11 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
             case 2:
                 startActivity(new Intent(this, DialogActivity.class));
                 break;
+            case 3:
+                startActivity(new Intent(this, ProgressActivity.class));
+                break;
+            case 5:
+                startActivity(new Intent(this, ViewPagerActivity.class));
             default:
                 message("未实现的例子");
         }

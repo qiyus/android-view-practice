@@ -7,14 +7,13 @@ import java.util.List;
  * Created by songlei on 16/10/21.
  */
 
-public class ViewDataModel implements IMainContract.IViewDataModel {
-    private List<ViewDataItem> mData;
+class ViewDataModel implements IMainContract.IViewDataModel {
+    private List<ViewDataItem> mData = new ArrayList<>();
 
     /**
      * 初期化
      */
-    public ViewDataModel() {
-        mData = new ArrayList<>();
+    ViewDataModel() {
         initData();
     }
 
@@ -23,11 +22,11 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
      */
     private void initData() {
         addRecord(0, "activity事件的调用顺序。", "AlertDialog|PopupWindow|PopupMenu|ContextMenu|RatingBar|ToggleButton");
-        addRecord(1, "Fragment事件的调用顺序。", "未学习");
+        addRecord(1, "ViewPager和Fragment实现Tab效果。", "ViewPager|Fragment");
         addRecord(2, "DialogFragment的使用。", "DialogFragment|AlertDialog|SimpleCursorAdapter|CursorLoader|Contacts");
-        addRecord(3, "进度条的使用。", "未学习");
+        addRecord(3, "ProgressBar的使用。", "ProgressBar|RatingBar|SeekBar");
         addRecord(4, "CardView的使用。", "未学习");
-        addRecord(5, "Viewpager的使用。", "未学习");
+        addRecord(5, "Viewpager的使用。", "FragmentPagerAdapter|PagerAdapter|FragmentPagerStateAdapter");
         addRecord(6, "ViewFlipper的使用。", "未学习");
         addRecord(7, "Android Notification通知栏的使用", "未学习");
         addRecord(8, "PullRefreshView的使用", "未学习");
@@ -37,8 +36,9 @@ public class ViewDataModel implements IMainContract.IViewDataModel {
 
     /**
      * 追加例子Item到list数据。
+     * @param type activity标记
      * @param title 标题
-     * @param date 日期
+     * @param detail 私用的控件
      */
     private void addRecord(int type, String title, String detail) {
         ViewDataItem item = new ViewDataItem();

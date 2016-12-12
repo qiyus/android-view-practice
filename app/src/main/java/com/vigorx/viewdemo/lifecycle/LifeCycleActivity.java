@@ -72,15 +72,15 @@ public class LifeCycleActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Rect rect = new Rect();
                 mLocationButton.getLocalVisibleRect(rect);
-                mTextView1.setText("getLocalVisibleRect:" + rect.toString());
+                mTextView1.setText(getString(R.string.lifecycle_getlocal) + rect.toString());
                 mLocationButton.getGlobalVisibleRect(rect);
-                mTextView2.setText("getGlobalVisibleRect:" + rect.toString());
+                mTextView2.setText(getString(R.string.lifecycle_getglobal) + rect.toString());
 
                 int[] location = new int[2];
                 mLocationButton.getLocationOnScreen(location);
-                mTextView3.setText("getLocationOnScreen:x," + location[0] + "; y," + location[1]);
+                mTextView3.setText(getString(R.string.lifecycle_getonscreen) + location[0] + getString(R.string.lifecycle_y) + location[1]);
                 mLocationButton.getLocationInWindow(location);
-                mTextView4.setText("getLocationInWindow:x," + location[0] + "; y," + location[1]);
+                mTextView4.setText(getString(R.string.lifecycle_getinwindow) + location[0] + getString(R.string.lifecycle_y) + location[1]);
             }
         });
 
@@ -106,11 +106,11 @@ public class LifeCycleActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(LifeCycleActivity.this);
                 builder.setTitle(R.string.dialog_lifecycle_title)
                         .setMessage(R.string.dialog_lifecycle_message)
-                        .setPositiveButton(R.string.dialog_lifecycle_ok, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Snackbar snackbar = Snackbar.make(mLayout, R.string.snack_lifecycle_ok_message, Snackbar.LENGTH_SHORT);
-                                snackbar.setAction(R.string.dialog_lifecycle_ok, new View.OnClickListener() {
+                                snackbar.setAction(R.string.ok, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         Log.i(TAG, getString(R.string.log_lifecycle_snack_ok));
@@ -119,7 +119,7 @@ public class LifeCycleActivity extends AppCompatActivity {
                                 snackbar.show();
                             }
                         })
-                        .setNegativeButton(R.string.dialog_lifecycle_cancel, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Snackbar snackbar = Snackbar.make(mLayout, R.string.snack_lifecycle_cancel_message, Snackbar.LENGTH_SHORT);

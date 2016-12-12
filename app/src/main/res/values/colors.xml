@@ -7,4 +7,5 @@
     <color name="colorBackground">#e2e2d0</color>
     <color name="colorTitleBackground">#000000</color>
     <color name="colorTitle">#ffffff</color>
+    <color name="colorProgressBarBg">#668373</color>
 </resources>
