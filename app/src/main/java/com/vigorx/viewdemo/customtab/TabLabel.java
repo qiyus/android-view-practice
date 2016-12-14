@@ -21,160 +21,169 @@ import com.vigorx.viewdemo.R;
 
 public class TabLabel extends View {
 
-	private static final String INSTANCE_STATUS = "instance_status";
-	private static final String STATUS_ALPHA = "status_alpha";
-	
-	@Override
-	protected Parcelable onSaveInstanceState() {
-		Bundle bundle = new Bundle();
-		bundle.putParcelable(INSTANCE_STATUS, super.onSaveInstanceState());
-		bundle.putFloat(STATUS_ALPHA, tabAlpha);
-		return bundle;
-	}
+    private static final String INSTANCE_STATUS = "instance_status";
+    private static final String STATUS_ALPHA = "status_alpha";
 
-	@Override
-	protected void onRestoreInstanceState(Parcelable state) {
-		if (state instanceof Bundle)
-		{
-			Bundle bundle = (Bundle) state;
-			tabAlpha = bundle.getFloat(STATUS_ALPHA);
-			super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATUS));
-			return;
-		}
-		super.onRestoreInstanceState(state);
-	}
+    private int mTabAlpha;
+    private int mTabColor = 0xFF45C01A;
+    private Bitmap mTabIcon;
+    private String mTabText = "";
+    private int mTabTextSize;
+    private Rect mTabTextRect;
+    private Paint mTabTextPaint;
+    private Rect mTabIconRect;
 
-	private int color = 0xFF45C01A;
-	private Bitmap iconBitmap;
-	private String text = "";
-	private int textSize = (int) TypedValue.applyDimension(
-			TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics());
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(INSTANCE_STATUS, super.onSaveInstanceState());
+        bundle.putInt(STATUS_ALPHA, mTabAlpha);
+        return bundle;
+    }
 
-	private Canvas tabCanvas;
-	private Bitmap bitmap;
-	private Paint paint;
-	private float tabAlpha;
-	private Rect iconRect;
-	private Rect textRect;
-	private Paint textPaint;
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (state instanceof Bundle) {
+            Bundle bundle = (Bundle) state;
+            mTabAlpha = bundle.getInt(STATUS_ALPHA, 0);
+            super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATUS));
+            return;
+        }
+        super.onRestoreInstanceState(state);
+    }
 
-	public TabLabel(Context context, AttributeSet attrs,
-					int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
+    public TabLabel(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
 
-		TypedArray values = context.obtainStyledAttributes(attrs,
-				R.styleable.TabLabel);
-		int count = values.getIndexCount();
-		for (int i = 0; i < count; i++) {
-			int attr = values.getIndex(i);
-			switch (attr) {
-			case R.styleable.TabLabel_tab_icon:
-				BitmapDrawable drawable = (BitmapDrawable) values
-						.getDrawable(attr);
-				iconBitmap = drawable.getBitmap();
-				break;
-			case R.styleable.TabLabel_tab_color:
-				color = values.getColor(attr, 0xFF45C01A);
-				break;
-			case R.styleable.TabLabel_tab_text:
-				text = values.getString(attr);
-				break;
-			case R.styleable.TabLabel_tab_text_size:
-				textSize = (int) values.getDimension(attr, (int) TypedValue
-						.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12,
-								getResources().getDisplayMetrics()));
+        // 读取组件属性
+        TypedArray values = context.obtainStyledAttributes(attrs,
+                R.styleable.TabLabel);
 
-				break;
-			}
-		}
-		
-		values.recycle();
-		
-		textRect = new Rect();
-		textPaint = new Paint();
-		textPaint.setTextSize(textSize);
-		textPaint.setColor(0Xff555555);
-		textPaint.getTextBounds(text, 0, text.length(), textRect);
-	}
+        int count = values.getIndexCount();
+        for (int i = 0; i < count; i++) {
+            int attr = values.getIndex(i);
+            switch (attr) {
+                case R.styleable.TabLabel_tab_icon:
+                    BitmapDrawable drawable = (BitmapDrawable) values
+                            .getDrawable(attr);
+                    if (drawable != null) {
+                        mTabIcon = drawable.getBitmap();
+                    }
+                    break;
+                case R.styleable.TabLabel_tab_color:
+                    mTabColor = values.getColor(attr, 0xFF45C01A);
+                    break;
+                case R.styleable.TabLabel_tab_text:
+                    mTabText = values.getString(attr);
+                    break;
+                case R.styleable.TabLabel_tab_text_size:
+                    mTabTextSize = (int) values.getDimension(attr, (int) TypedValue
+                            .applyDimension(TypedValue.COMPLEX_UNIT_SP, 12,
+                                    getResources().getDisplayMetrics()));
 
-	public TabLabel(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
+                    break;
+                default:
+            }
+        }
 
-	public TabLabel(Context context) {
-		this(context, null);
-	}
+        values.recycle();
 
-	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		int iconWidth = Math.min(getMeasuredWidth() - getPaddingLeft()
-				- getPaddingRight(), getMeasuredHeight() - getPaddingTop()
-				- getPaddingBottom() - textRect.height());
+        // 计算文本描画区域。
+        mTabTextRect = new Rect();
+        Paint paint = new Paint();
+        paint.getTextBounds(mTabText, 0, mTabText.length(), mTabTextRect);
+    }
 
-		int left = getMeasuredWidth() / 2 - iconWidth / 2;
-		int top = getMeasuredHeight() / 2 - (textRect.height() + iconWidth)
-				/ 2;
-		iconRect = new Rect(left, top, left + iconWidth, top + iconWidth);
-	}
+    public TabLabel(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
 
-	@Override
-	protected void onDraw(Canvas canvas) {
-		super.onDraw(canvas);
-		canvas.drawBitmap(iconBitmap, null, iconRect, null);
-		int alpha = (int) Math.ceil(255 * tabAlpha);
-		setupTargetBitmap(alpha);
-		drawSourceText(canvas, alpha);
-		drawTargetText(canvas, alpha);
-		canvas.drawBitmap(bitmap, 0, 0, null);
-	}
+    public TabLabel(Context context) {
+        this(context, null);
+    }
 
-	private void drawTargetText(Canvas canvas, int alpha) {
-		textPaint.setColor(color);
-		textPaint.setAlpha(alpha);
-		int x = getMeasuredWidth() / 2 - textRect.width() / 2;
-		int y = iconRect.bottom + textRect.height();
-		canvas.drawText(text, x, y, textPaint);
-	}
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-	private void drawSourceText(Canvas canvas, int alpha) {
-		textPaint.setColor(0xff333333);
-		textPaint.setAlpha(255 - alpha);
-		int x = getMeasuredWidth() / 2 - textRect.width() / 2;
-		int y = iconRect.bottom + textRect.height();
-		canvas.drawText(text, x, y, textPaint);
-	}
+        // 计算Icon描画区域
+        int iconWidth = Math.min(getMeasuredWidth() - getPaddingLeft()
+                - getPaddingRight(), getMeasuredHeight() - getPaddingTop()
+                - getPaddingBottom() - mTabTextRect.height());
 
-	private void setupTargetBitmap(int alpha) {
-		bitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(),
-				Config.ARGB_8888);
-		tabCanvas = new Canvas(bitmap);
-		paint = new Paint();
-		paint.setColor(color);
-		paint.setAntiAlias(true);
-		paint.setDither(true);
-		paint.setAlpha(alpha);
-		tabCanvas.drawRect(iconRect, paint);
-		paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-		paint.setAlpha(255);
-		tabCanvas.drawBitmap(iconBitmap, null, iconRect, paint);
-	}
-	
-	public void setIconAlpha(float alpha)
-	{
-		this.tabAlpha = alpha;
-		invalidateView();
-	}
+        int left = getMeasuredWidth() / 2 - iconWidth / 2;
+        int top = getMeasuredHeight() / 2 - (mTabTextRect.height() + iconWidth)
+                / 2;
+        mTabIconRect = new Rect(left, top, left + iconWidth, top + iconWidth);
+    }
 
-	private void invalidateView()
-	{
-		if (Looper.getMainLooper() == Looper.myLooper())
-		{
-			invalidate();
-		} else
-		{
-			postInvalidate();
-		}
-	}
-	
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        // 画Icon
+        drawIcon(canvas);
+
+        // 画文本
+        drawText(canvas);
+    }
+
+    private void drawText(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setTextSize(mTabTextSize);
+
+        // 画底层文本
+        paint.setColor(0xff333333);
+        paint.setAlpha(255 - mTabAlpha);
+        int x = getMeasuredWidth() / 2 - mTabTextRect.width() / 2;
+        int y = mTabIconRect.bottom + mTabTextRect.height();
+        canvas.drawText(mTabText, x, y, paint);
+
+        // 画上层文本
+        paint.setColor(mTabColor);
+        paint.setAlpha(mTabAlpha);
+        x = getMeasuredWidth() / 2 - mTabTextRect.width() / 2;
+        y = mTabIconRect.bottom + mTabTextRect.height();
+        canvas.drawText(mTabText, x, y, paint);
+    }
+
+    private void drawIcon(Canvas canvas) {
+        // 画底层Icon
+        canvas.drawBitmap(mTabIcon, null, mTabIconRect, null);
+
+        // 画上层Icon
+        canvas.drawBitmap(createTargetBitmap(), 0, 0, null);
+    }
+
+    private Bitmap createTargetBitmap() {
+        // 利用指定颜色矩形和Icon不透明部分的交集，设置Icon透明度，来改变不透明部分的颜色。
+        Bitmap bitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(),
+                Config.ARGB_8888);
+        Canvas iconCanvas = new Canvas(bitmap);
+        Paint paint = new Paint();
+        paint.setColor(mTabColor);
+        paint.setAntiAlias(true);
+        paint.setDither(true);
+        paint.setAlpha(mTabAlpha);
+        iconCanvas.drawRect(mTabIconRect, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        paint.setAlpha(255);
+        iconCanvas.drawBitmap(mTabIcon, null, mTabIconRect, paint);
+
+        return bitmap;
+    }
+
+    public void setIconAlpha(float alpha) {
+        this.mTabAlpha = (int) Math.ceil(255 * alpha);
+        invalidateView();
+    }
+
+    private void invalidateView() {
+        if (Looper.getMainLooper() == Looper.myLooper()) {
+            invalidate();
+        } else {
+            postInvalidate();
+        }
+    }
+
 }
