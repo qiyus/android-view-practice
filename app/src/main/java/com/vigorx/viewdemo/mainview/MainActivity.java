@@ -11,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import com.vigorx.viewdemo.R;
+import com.vigorx.viewdemo.customtab.TabActivity;
 import com.vigorx.viewdemo.dialog.DialogActivity;
 import com.vigorx.viewdemo.lifecycle.LifeCycleActivity;
+import com.vigorx.viewdemo.pdfview.PDFViewActivity;
 import com.vigorx.viewdemo.progressbar.ProgressActivity;
 import com.vigorx.viewdemo.recyclerview.DividerItemDecoration;
 import com.vigorx.viewdemo.recyclerview.ItemClickSupport;
@@ -77,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
             case 0:
                 startActivity(new Intent(this, LifeCycleActivity.class));
                 break;
+            case 1:
+                startActivity(new Intent(this, TabActivity.class));
+                break;
             case 2:
                 startActivity(new Intent(this, DialogActivity.class));
                 break;
@@ -85,6 +90,8 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
                 break;
             case 5:
                 startActivity(new Intent(this, ViewPagerActivity.class));
+            case 9:
+                startActivity(new Intent(this, PDFViewActivity.class));
             default:
                 message("未实现的例子");
         }

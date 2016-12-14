@@ -22,16 +22,16 @@ class ViewDataModel implements IMainContract.IViewDataModel {
      */
     private void initData() {
         addRecord(0, "activity事件的调用顺序。", "AlertDialog|PopupWindow|PopupMenu|ContextMenu|RatingBar|ToggleButton");
-        addRecord(1, "ViewPager和Fragment实现Tab效果。", "ViewPager|Fragment");
-        addRecord(2, "DialogFragment的使用。", "DialogFragment|AlertDialog|SimpleCursorAdapter|CursorLoader|Contacts");
-        addRecord(3, "ProgressBar的使用。", "ProgressBar|RatingBar|SeekBar");
-        addRecord(4, "CardView的使用。", "未学习");
-        addRecord(5, "Viewpager的使用。", "FragmentPagerAdapter|PagerAdapter|FragmentPagerStateAdapter");
-        addRecord(6, "ViewFlipper的使用。", "未学习");
-        addRecord(7, "Android Notification通知栏的使用", "未学习");
-        addRecord(8, "PullRefreshView的使用", "未学习");
-        addRecord(9, "PdfView的使用", "未学习");
-        addRecord(10, "SurfaceView的使用。", "未学习");
+        addRecord(1, "模仿微信的自定义Tab的例子。", "ViewPager|Fragment|CustomComponent");
+        addRecord(2, "DialogFragment的例子。", "DialogFragment|AlertDialog|SimpleCursorAdapter|CursorLoader|Contacts");
+        addRecord(3, "ProgressBar的例子。", "ProgressBar|RatingBar|SeekBar");
+        addRecord(4, "CardView的例子。", "未学习");
+        addRecord(5, "Viewpager的例子。", "FragmentPagerAdapter|PagerAdapter|FragmentPagerStateAdapter");
+        addRecord(6, "引导页面的例子。", "ViewFlipper");
+        addRecord(7, "Android Notification通知栏的例子", "未学习");
+        addRecord(8, "PullRefreshView的例子", "未学习");
+        addRecord(9, "PDFView的例子。", "PDFView|assets");
+        addRecord(10, "SurfaceView的例子。", "未学习");
     }
 
     /**

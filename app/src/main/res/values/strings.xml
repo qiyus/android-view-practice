@@ -40,4 +40,9 @@
     <string name="lifecycle_getinwindow">getLocationInWindow:x,</string>
     <string name="lifecycle_y">; y,</string>
     <string name="viewpager_mora">mora</string>
+
+    <string name="tab_event">事件</string>
+    <string name="tab_diary">日记</string>
+    <string name="tab_trace">打卡</string>
+    <string name="tab_milepost">里程碑</string>
 </resources>

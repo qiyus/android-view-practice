@@ -27,6 +27,8 @@
             android:label="@string/activity_name_lifecycle" />
         <activity android:name=".progressbar.ProgressActivity" />
         <activity android:name=".viewpager.ViewPagerActivity" />
+        <activity android:name=".pdfview.PDFViewActivity" />
+        <activity android:name=".customtab.TabActivity"></activity>
     </application>
 
 </manifest>
