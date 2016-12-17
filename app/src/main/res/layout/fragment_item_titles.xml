@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/song_titles_list"
+    android:name="com.vigorx.viewdemo.fragment.SongTitlesFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:background="@drawable/layer_bg"
+    app:layoutManager="LinearLayoutManager"
+    tools:context="com.vigorx.viewdemo.fragment.SongTitlesFragment"
+    tools:listitem="@layout/fragment_song_title" />

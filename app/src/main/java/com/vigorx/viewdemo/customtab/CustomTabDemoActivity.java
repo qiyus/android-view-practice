@@ -12,7 +12,7 @@ import com.vigorx.viewdemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class CustomTabDemoActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
     private final int[] TITLES = new int[]{R.string.tab_event,
             R.string.tab_diary, R.string.tab_trace, R.string.tab_milepost};
     private int mSelectedTabIndex = 1;

@@ -30,7 +30,7 @@ import android.widget.Toast;
 
 import com.vigorx.viewdemo.R;
 
-public class DialogActivity extends ListActivity
+public class DialogDemoActivity extends ListActivity
         implements LoaderManager.LoaderCallbacks<Cursor>,
         LoginDialogFragment.OnLoginDialogListener {
 
@@ -57,10 +57,10 @@ public class DialogActivity extends ListActivity
 
         // 动态获取访问外部存储权限。
         if (Build.VERSION.SDK_INT >= 23) {
-            if (ContextCompat.checkSelfPermission(DialogActivity.this,
+            if (ContextCompat.checkSelfPermission(DialogDemoActivity.this,
                     Manifest.permission.READ_CONTACTS)
                     != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(DialogActivity.this,
+                ActivityCompat.requestPermissions(DialogDemoActivity.this,
                         new String[]{Manifest.permission.READ_CONTACTS},
                         PERMISSIONS_REQUEST_READ_CONTACTS);
             } else {
@@ -80,7 +80,7 @@ public class DialogActivity extends ListActivity
                 Cursor cursor = (Cursor) mAdapter.getItem(position);
                 mSelectedItem = cursor.getString(columnIndex);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(DialogActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(DialogDemoActivity.this);
                 builder.setItems(MENUS, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

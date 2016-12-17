@@ -14,7 +14,6 @@ public interface IMainContract {
     interface IMainView {
         void initList(List<ViewDataItem> data);
         void toNextActivity(int type);
-        void message(String message);
     }
 
     /**

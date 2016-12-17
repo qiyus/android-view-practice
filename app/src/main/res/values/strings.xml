@@ -45,4 +45,6 @@
     <string name="tab_diary">日记</string>
     <string name="tab_trace">打卡</string>
     <string name="tab_milepost">里程碑</string>
+    <string name="defaultNotStudyMessage">未实现的例子</string>
+
 </resources>

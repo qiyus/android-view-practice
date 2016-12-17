@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.vigorx.viewdemo.R;
 
-public class ProgressActivity extends AppCompatActivity {
+public class ProgressDemoActivity extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
     private AppCompatRatingBar mRatingBar;

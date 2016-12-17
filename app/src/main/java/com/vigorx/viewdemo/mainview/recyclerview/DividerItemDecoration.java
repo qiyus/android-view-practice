@@ -1,4 +1,4 @@
-package com.vigorx.viewdemo.recyclerview;
+package com.vigorx.viewdemo.mainview.recyclerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;

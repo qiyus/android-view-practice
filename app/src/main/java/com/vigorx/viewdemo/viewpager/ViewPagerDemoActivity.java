@@ -18,7 +18,7 @@ import com.vigorx.viewdemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewPagerActivity extends AppCompatActivity {
+public class ViewPagerDemoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

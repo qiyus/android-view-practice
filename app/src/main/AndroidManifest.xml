@@ -20,15 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dialog.DialogActivity" />
+        <activity android:name=".dialog.DialogDemoActivity" />
         <activity
-            android:name=".lifecycle.LifeCycleActivity"
+            android:name=".lifecycle.LifeCycleDemoActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:label="@string/activity_name_lifecycle" />
-        <activity android:name=".progressbar.ProgressActivity" />
-        <activity android:name=".viewpager.ViewPagerActivity" />
-        <activity android:name=".pdfview.PDFViewActivity" />
-        <activity android:name=".customtab.TabActivity"></activity>
+        <activity android:name=".progressbar.ProgressDemoActivity" />
+        <activity android:name=".viewpager.ViewPagerDemoActivity" />
+        <activity android:name=".pdfview.PDFViewDemoActivity" />
+        <activity android:name=".customtab.CustomTabDemoActivity" />
+        <activity android:name=".fragment.FragmentDemoActivity"></activity>
     </application>
 
 </manifest>

@@ -33,7 +33,7 @@ import com.vigorx.viewdemo.R;
  * Created by songlei on 16/10/28.
  */
 
-public class LifeCycleActivity extends AppCompatActivity {
+public class LifeCycleDemoActivity extends AppCompatActivity {
     private final static String TAG = "com.vigorx.lifecycle";
     private TextView mTextView1;
     private TextView mTextView2;
@@ -103,7 +103,7 @@ public class LifeCycleActivity extends AppCompatActivity {
         mDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(LifeCycleActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(LifeCycleDemoActivity.this);
                 builder.setTitle(R.string.dialog_lifecycle_title)
                         .setMessage(R.string.dialog_lifecycle_message)
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -148,7 +148,7 @@ public class LifeCycleActivity extends AppCompatActivity {
                 final View container = getLayoutInflater().inflate(R.layout.popupwindow_lifecycle, null);
                 String[] data = new String[]{"one", "two", "three", "four", "five"};
                 ListView listView = (ListView) container.findViewById(R.id.popup_window);
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(LifeCycleActivity.this,
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(LifeCycleDemoActivity.this,
                         R.layout.support_simple_spinner_dropdown_item, data);
                 listView.setAdapter(adapter);
 
@@ -186,7 +186,7 @@ public class LifeCycleActivity extends AppCompatActivity {
         mPopupMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPopupMenu = new PopupMenu(LifeCycleActivity.this, mPopupMenuButton);
+                mPopupMenu = new PopupMenu(LifeCycleDemoActivity.this, mPopupMenuButton);
                 mPopupMenu.getMenuInflater().inflate(R.menu.menu_lifecycle_popup, mPopupMenu.getMenu());
                 mPopupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override

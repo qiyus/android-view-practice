@@ -10,7 +10,7 @@ import com.vigorx.viewdemo.R;
 
 import static java.lang.String.format;
 
-public class PDFViewActivity extends AppCompatActivity implements OnPageChangeListener{
+public class PDFViewDemoActivity extends AppCompatActivity implements OnPageChangeListener{
     private static final String PDF_NAME = "Architecting on AWS.pdf";
     private TextView mPageText;
     private PDFView mPdfView;

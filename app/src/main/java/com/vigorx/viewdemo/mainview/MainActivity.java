@@ -11,14 +11,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import com.vigorx.viewdemo.R;
-import com.vigorx.viewdemo.customtab.TabActivity;
-import com.vigorx.viewdemo.dialog.DialogActivity;
-import com.vigorx.viewdemo.lifecycle.LifeCycleActivity;
-import com.vigorx.viewdemo.pdfview.PDFViewActivity;
-import com.vigorx.viewdemo.progressbar.ProgressActivity;
-import com.vigorx.viewdemo.recyclerview.DividerItemDecoration;
-import com.vigorx.viewdemo.recyclerview.ItemClickSupport;
-import com.vigorx.viewdemo.viewpager.ViewPagerActivity;
+import com.vigorx.viewdemo.customtab.CustomTabDemoActivity;
+import com.vigorx.viewdemo.dialog.DialogDemoActivity;
+import com.vigorx.viewdemo.fragment.FragmentDemoActivity;
+import com.vigorx.viewdemo.lifecycle.LifeCycleDemoActivity;
+import com.vigorx.viewdemo.pdfview.PDFViewDemoActivity;
+import com.vigorx.viewdemo.progressbar.ProgressDemoActivity;
+import com.vigorx.viewdemo.mainview.recyclerview.DividerItemDecoration;
+import com.vigorx.viewdemo.mainview.recyclerview.ItemClickSupport;
+import com.vigorx.viewdemo.viewpager.ViewPagerDemoActivity;
 
 import java.util.List;
 
@@ -68,32 +69,32 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
     }
 
     @Override
-    public void message(String message) {
-        Snackbar snackbar = Snackbar.make(mRecyclerView, message, Snackbar.LENGTH_LONG);
-        snackbar.show();
-    }
-
-    @Override
     public void toNextActivity(int type) {
         switch (type){
             case 0:
-                startActivity(new Intent(this, LifeCycleActivity.class));
+                startActivity(new Intent(this, LifeCycleDemoActivity.class));
                 break;
             case 1:
-                startActivity(new Intent(this, TabActivity.class));
+                startActivity(new Intent(this, CustomTabDemoActivity.class));
                 break;
             case 2:
-                startActivity(new Intent(this, DialogActivity.class));
+                startActivity(new Intent(this, DialogDemoActivity.class));
                 break;
             case 3:
-                startActivity(new Intent(this, ProgressActivity.class));
+                startActivity(new Intent(this, ProgressDemoActivity.class));
+                break;
+            case 4:
+                startActivity(new Intent(this, FragmentDemoActivity.class));
                 break;
             case 5:
-                startActivity(new Intent(this, ViewPagerActivity.class));
+                startActivity(new Intent(this, ViewPagerDemoActivity.class));
+                break;
             case 9:
-                startActivity(new Intent(this, PDFViewActivity.class));
+                startActivity(new Intent(this, PDFViewDemoActivity.class));
+                break;
             default:
-                message("未实现的例子");
+                Snackbar snackbar = Snackbar.make(mRecyclerView, R.string.defaultNotStudyMessage, Snackbar.LENGTH_LONG);
+                snackbar.show();
         }
     }
 

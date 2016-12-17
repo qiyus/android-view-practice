@@ -30,7 +30,6 @@ public class TabLabel extends View {
     private String mTabText = "";
     private int mTabTextSize;
     private Rect mTabTextRect;
-    private Paint mTabTextPaint;
     private Rect mTabIconRect;
 
     @Override

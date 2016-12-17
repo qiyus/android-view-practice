@@ -1,4 +1,4 @@
-package com.vigorx.viewdemo.recyclerview;
+package com.vigorx.viewdemo.mainview.recyclerview;
 
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.RecyclerView;
