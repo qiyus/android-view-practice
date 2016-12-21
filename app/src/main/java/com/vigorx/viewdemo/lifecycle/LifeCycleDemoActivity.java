@@ -109,7 +109,8 @@ public class LifeCycleDemoActivity extends AppCompatActivity {
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Snackbar snackbar = Snackbar.make(mLayout, R.string.snack_lifecycle_ok_message, Snackbar.LENGTH_SHORT);
+                                Snackbar snackbar = Snackbar.make(mLayout,
+                                        R.string.snack_lifecycle_ok_message, Snackbar.LENGTH_SHORT);
                                 snackbar.setAction(R.string.ok, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -119,10 +120,11 @@ public class LifeCycleDemoActivity extends AppCompatActivity {
                                 snackbar.show();
                             }
                         })
-                        .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Snackbar snackbar = Snackbar.make(mLayout, R.string.snack_lifecycle_cancel_message, Snackbar.LENGTH_SHORT);
+                                Snackbar snackbar = Snackbar.make(mLayout,
+                                        R.string.snack_lifecycle_cancel_message, Snackbar.LENGTH_SHORT);
                                 snackbar.show();
                             }
                         })
