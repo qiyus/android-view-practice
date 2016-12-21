@@ -19,6 +19,7 @@ import com.vigorx.viewdemo.pdfview.PDFViewDemoActivity;
 import com.vigorx.viewdemo.progressbar.ProgressDemoActivity;
 import com.vigorx.viewdemo.mainview.recyclerview.DividerItemDecoration;
 import com.vigorx.viewdemo.mainview.recyclerview.ItemClickSupport;
+import com.vigorx.viewdemo.surfaceview.SurfaceViewDemoActivity;
 import com.vigorx.viewdemo.viewpager.ViewPagerDemoActivity;
 
 import java.util.List;
@@ -92,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
             case 9:
                 startActivity(new Intent(this, PDFViewDemoActivity.class));
                 break;
+            case 10:
+                startActivity(new Intent(this, SurfaceViewDemoActivity.class));
             default:
                 Snackbar snackbar = Snackbar.make(mRecyclerView, R.string.defaultNotStudyMessage, Snackbar.LENGTH_LONG);
                 snackbar.show();

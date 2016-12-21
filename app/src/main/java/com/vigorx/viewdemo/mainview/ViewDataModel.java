@@ -31,7 +31,7 @@ class ViewDataModel implements IMainContract.IViewDataModel {
         addRecord(7, "Android Notification通知栏的例子", "未学习");
         addRecord(8, "PullRefreshView的例子", "未学习");
         addRecord(9, "PDFView的例子。", "PDFView|assets");
-        addRecord(10, "SurfaceView的例子。", "未学习");
+        addRecord(10, "SurfaceView的例子。", "SurfaceView|Camera");
     }
 
     /**
