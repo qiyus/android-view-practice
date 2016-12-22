@@ -20,6 +20,7 @@ import com.vigorx.viewdemo.progressbar.ProgressDemoActivity;
 import com.vigorx.viewdemo.mainview.recyclerview.DividerItemDecoration;
 import com.vigorx.viewdemo.mainview.recyclerview.ItemClickSupport;
 import com.vigorx.viewdemo.surfaceview.SurfaceViewDemoActivity;
+import com.vigorx.viewdemo.viewflipper.ViewFlipperDemoActivity;
 import com.vigorx.viewdemo.viewpager.ViewPagerDemoActivity;
 
 import java.util.List;
@@ -89,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
                 break;
             case 5:
                 startActivity(new Intent(this, ViewPagerDemoActivity.class));
+                break;
+            case 6:
+                startActivity(new Intent(this, ViewFlipperDemoActivity.class));
                 break;
             case 9:
                 startActivity(new Intent(this, PDFViewDemoActivity.class));

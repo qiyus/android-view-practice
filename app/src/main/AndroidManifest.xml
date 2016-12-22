@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature
         android:name="android.hardware.camera.front"
@@ -37,7 +38,8 @@
         <activity android:name=".pdfview.PDFViewDemoActivity" />
         <activity android:name=".customtab.CustomTabDemoActivity" />
         <activity android:name=".fragment.FragmentDemoActivity" />
-        <activity android:name=".surfaceview.SurfaceViewDemoActivity"></activity>
+        <activity android:name=".surfaceview.SurfaceViewDemoActivity" />
+        <activity android:name=".viewflipper.ViewFlipperDemoActivity"></activity>
     </application>
 
 </manifest>

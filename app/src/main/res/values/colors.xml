@@ -8,4 +8,5 @@
     <color name="colorTitleBackground">#000000</color>
     <color name="colorTitle">#ffffff</color>
     <color name="colorProgressBarBg">#668373</color>
+    <color name="colorViewFlipper">#15cfd9</color>
 </resources>

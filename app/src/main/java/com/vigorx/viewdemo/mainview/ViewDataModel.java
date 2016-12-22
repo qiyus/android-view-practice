@@ -27,7 +27,7 @@ class ViewDataModel implements IMainContract.IViewDataModel {
         addRecord(3, "ProgressBar的例子。", "ProgressBar|RatingBar|SeekBar");
         addRecord(4, "Fragment的通信、事物的例子。", "Fragment|RecyclerView");
         addRecord(5, "Viewpager的例子。", "FragmentPagerAdapter|PagerAdapter|FragmentPagerStateAdapter");
-        addRecord(6, "引导页面的例子。", "未学习");
+        addRecord(6, "ViewFlipper实现引导页面的例子。", "ViewFlipper|GestureDetector");
         addRecord(7, "Android Notification通知栏的例子", "未学习");
         addRecord(8, "PullRefreshView的例子", "未学习");
         addRecord(9, "PDFView的例子。", "PDFView|assets");

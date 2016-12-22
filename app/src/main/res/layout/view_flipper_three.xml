@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorViewFlipper">
+
+    <ImageView
+        android:id="@+id/view_flipper_image3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/scissors"
+        android:contentDescription="@string/viewpager_mora" />
+
+    <Button
+        android:id="@+id/view_flipper_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_button"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="15dp"
+        android:background="@drawable/layer_bg"/>
+</FrameLayout>
