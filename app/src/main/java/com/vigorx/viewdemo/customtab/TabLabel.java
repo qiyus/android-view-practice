@@ -90,6 +90,7 @@ public class TabLabel extends View {
         // 计算文本描画区域。
         mTabTextRect = new Rect();
         Paint paint = new Paint();
+        paint.setTextSize(mTabTextSize);
         paint.getTextBounds(mTabText, 0, mTabText.length(), mTabTextRect);
     }
 
