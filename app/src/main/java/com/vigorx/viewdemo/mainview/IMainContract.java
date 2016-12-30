@@ -13,7 +13,7 @@ public interface IMainContract {
 
     interface IMainView {
         void initList(List<ViewDataItem> data);
-        void toNextActivity(int type);
+        void toNextActivity(Class activityClass);
     }
 
     /**

@@ -7,7 +7,7 @@ package com.vigorx.viewdemo.mainview;
 public class ViewDataItem {
     private String title;
     private String detail;
-    private int type;
+    private Class aClass;
 
     public String getTitle() {
         return title;
@@ -25,11 +25,11 @@ public class ViewDataItem {
         this.detail = detail;
     }
 
-    public int getType() {
-        return type;
+    public Class getaClass() {
+        return aClass;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setaClass(Class aClass) {
+        this.aClass = aClass;
     }
 }

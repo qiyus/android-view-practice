@@ -15,6 +15,7 @@ import com.vigorx.viewdemo.customtab.CustomTabDemoActivity;
 import com.vigorx.viewdemo.dialog.DialogDemoActivity;
 import com.vigorx.viewdemo.fragment.FragmentDemoActivity;
 import com.vigorx.viewdemo.lifecycle.LifeCycleDemoActivity;
+import com.vigorx.viewdemo.notification.NotificationDemoActivity;
 import com.vigorx.viewdemo.pdfview.PDFViewDemoActivity;
 import com.vigorx.viewdemo.progressbar.ProgressDemoActivity;
 import com.vigorx.viewdemo.mainview.recyclerview.DividerItemDecoration;
@@ -54,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
         mAdapter = new ViewListAdapter(data);
         mRecyclerView.setAdapter(mAdapter);
 
-        // 设置点击事件可以有2种方法，注释掉一种。
-        /*mRecyclerView.addOnItemTouchListener(new OnItemTouchListener(mRecyclerView) {
+        /*// 设置点击事件另一种方法。
+        mRecyclerView.addOnItemTouchListener(new OnItemTouchListener(mRecyclerView) {
             @Override
             public void onItemClick(RecyclerView.ViewHolder vh) {
             }
@@ -65,43 +66,19 @@ public class MainActivity extends AppCompatActivity implements IMainContract.IMa
         mSupport.setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                toNextActivity(data.get(position).getType());
+                toNextActivity(data.get(position).getaClass());
             }
         });
     }
 
     @Override
-    public void toNextActivity(int type) {
-        switch (type){
-            case 0:
-                startActivity(new Intent(this, LifeCycleDemoActivity.class));
-                break;
-            case 1:
-                startActivity(new Intent(this, CustomTabDemoActivity.class));
-                break;
-            case 2:
-                startActivity(new Intent(this, DialogDemoActivity.class));
-                break;
-            case 3:
-                startActivity(new Intent(this, ProgressDemoActivity.class));
-                break;
-            case 4:
-                startActivity(new Intent(this, FragmentDemoActivity.class));
-                break;
-            case 5:
-                startActivity(new Intent(this, ViewPagerDemoActivity.class));
-                break;
-            case 6:
-                startActivity(new Intent(this, ViewFlipperDemoActivity.class));
-                break;
-            case 9:
-                startActivity(new Intent(this, PDFViewDemoActivity.class));
-                break;
-            case 10:
-                startActivity(new Intent(this, SurfaceViewDemoActivity.class));
-            default:
-                Snackbar snackbar = Snackbar.make(mRecyclerView, R.string.defaultNotStudyMessage, Snackbar.LENGTH_LONG);
-                snackbar.show();
+    public void toNextActivity(Class activityClass) {
+        if (null != activityClass) {
+            startActivity(new Intent(this, activityClass));
+        }
+        else {
+            Snackbar snackbar = Snackbar.make(mRecyclerView, R.string.defaultNotStudyMessage, Snackbar.LENGTH_LONG);
+            snackbar.show();
         }
     }
 
