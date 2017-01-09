@@ -28,6 +28,7 @@ import android.widget.ProgressBar;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import com.squareup.leakcanary.LeakCanary;
 import com.vigorx.viewdemo.R;
 
 public class DialogDemoActivity extends ListActivity
