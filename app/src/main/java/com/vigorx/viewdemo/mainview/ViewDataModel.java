@@ -8,6 +8,7 @@ import com.vigorx.viewdemo.notification.NotificationDemoActivity;
 import com.vigorx.viewdemo.pdfview.PDFViewDemoActivity;
 import com.vigorx.viewdemo.progressbar.ProgressDemoActivity;
 import com.vigorx.viewdemo.surfaceview.SurfaceViewDemoActivity;
+import com.vigorx.viewdemo.swiperefreshlayout.SwipeRefreshLayoutDemoActivity;
 import com.vigorx.viewdemo.viewflipper.ViewFlipperDemoActivity;
 import com.vigorx.viewdemo.viewpager.ViewPagerDemoActivity;
 
@@ -34,7 +35,7 @@ class ViewDataModel implements IMainContract.IViewDataModel {
         addRecord(ViewPagerDemoActivity.class, "Viewpager的例子。", "FragmentPagerAdapter|PagerAdapter|FragmentPagerStateAdapter");
         addRecord(ViewFlipperDemoActivity.class, "ViewFlipper实现引导页面的例子。", "ViewFlipper|GestureDetector");
         addRecord(NotificationDemoActivity.class, "Notification的例子", "NotificationCompat|PendingIntent|NotificationManager|RemoteViews");
-        addRecord(null, "PullRefreshView的例子", "未学习");
+        addRecord(SwipeRefreshLayoutDemoActivity.class, "SwipeRefreshLayout的例子", "SwipeRefreshLayout");
         addRecord(PDFViewDemoActivity.class, "PDFView的例子。", "PDFView|assets");
         addRecord(SurfaceViewDemoActivity.class, "SurfaceView的例子。", "SurfaceView|Camera");
     }

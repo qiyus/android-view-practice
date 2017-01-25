@@ -59,12 +59,13 @@
         <activity
             android:name=".notification.Notification2Activity"
             android:parentActivityName=".mainview.MainActivity">
-            <!--api 16 需要以下定义-->
+
+            <!-- api 16 需要以下定义 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".mainview.MainActivity" />
         </activity>
-
+        <activity android:name=".swiperefreshlayout.SwipeRefreshLayoutDemoActivity"></activity>
     </application>
 
 </manifest>
