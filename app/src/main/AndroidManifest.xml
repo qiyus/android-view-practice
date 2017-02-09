@@ -65,7 +65,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".mainview.MainActivity" />
         </activity>
-        <activity android:name=".swiperefreshlayout.SwipeRefreshLayoutDemoActivity"></activity>
+        <activity android:name=".swiperefreshlayout.SwipeRefreshLayoutDemoActivity" />
+        <activity android:name=".canvas.CanvasDemoActivity"></activity>
     </application>
 
 </manifest>

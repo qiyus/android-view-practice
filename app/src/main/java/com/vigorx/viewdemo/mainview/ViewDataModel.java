@@ -1,5 +1,6 @@
 package com.vigorx.viewdemo.mainview;
 
+import com.vigorx.viewdemo.canvas.CanvasDemoActivity;
 import com.vigorx.viewdemo.customtab.CustomTabDemoActivity;
 import com.vigorx.viewdemo.dialog.DialogDemoActivity;
 import com.vigorx.viewdemo.fragment.FragmentDemoActivity;
@@ -38,6 +39,7 @@ class ViewDataModel implements IMainContract.IViewDataModel {
         addRecord(SwipeRefreshLayoutDemoActivity.class, "SwipeRefreshLayout的例子", "SwipeRefreshLayout");
         addRecord(PDFViewDemoActivity.class, "PDFView的例子。", "PDFView|assets");
         addRecord(SurfaceViewDemoActivity.class, "SurfaceView的例子。", "SurfaceView|Camera");
+        addRecord(CanvasDemoActivity.class, "Canvas的例子", "Canvas|Path");
     }
 
     /**
