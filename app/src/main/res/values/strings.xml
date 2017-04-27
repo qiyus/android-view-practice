@@ -61,5 +61,6 @@
     <string name="notification_large_detail">客户已经在催了，我们必须更加努力才行，项目组全体员工准备开始加班了。</string>
     <string name="notification_inbox">2016/12/2</string>
     <string name="notification_complete">已经全部完成！</string>
+    <string name="indicator">IndicatorProgressBar</string>
 
 </resources>

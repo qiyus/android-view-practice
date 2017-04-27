@@ -1,10 +1,13 @@
 package com.vigorx.viewdemo.progressbar;
 
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.AppCompatSeekBar;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
@@ -16,6 +19,7 @@ import com.vigorx.viewdemo.R;
 public class ProgressDemoActivity extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
+    private IndicatorProgressBar mIndicatorProgressBar;
     private AppCompatRatingBar mRatingBar;
     private AppCompatSeekBar mSeekBar;
     private TextView mRating;
@@ -31,6 +35,20 @@ public class ProgressDemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_progress);
 
         mProgressBar = (ProgressBar) findViewById(R.id.progress1);
+
+        mIndicatorProgressBar = (IndicatorProgressBar) this.findViewById(R.id.indicator_progress_bar);
+        mIndicatorProgressBar.setMax(100);
+
+        Drawable indicator = getResources().getDrawable(
+                R.drawable.progress_indicator);
+        Rect bounds = new Rect(0, 0, indicator.getIntrinsicWidth() + 5,
+                indicator.getIntrinsicHeight());
+        indicator.setBounds(bounds);
+
+        mIndicatorProgressBar.setProgressIndicator(indicator);
+        mIndicatorProgressBar.setProgress(30);
+        mIndicatorProgressBar.setVisibility(View.VISIBLE);
+
         mRating = (TextView) findViewById(R.id.progress_rating);
         mRatingBar = (AppCompatRatingBar) findViewById(R.id.progress3);
         mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -68,6 +86,8 @@ public class ProgressDemoActivity extends AppCompatActivity {
                         public void run() {
                             mProgressBar.setProgress(mProgressStatus);
                             mProgressBar.setSecondaryProgress(mProgressStatus++ > 100 ? 100 : mProgressStatus);
+//                            mIndicatorProgressBar.setSecondaryProgress(mProgressStatus++ > 100 ? 100 : mProgressStatus);
+//                            mIndicatorProgressBar.setProgress(mProgressStatus);
                         }
                     });
                 }
