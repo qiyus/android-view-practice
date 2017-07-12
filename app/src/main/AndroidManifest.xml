@@ -12,6 +12,9 @@
         android:name="android.hardware.camera.front"
         android:required="false" />
 
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ViewDemoApplication"
         android:allowBackup="true"
@@ -66,7 +69,8 @@
                 android:value=".mainview.MainActivity" />
         </activity>
         <activity android:name=".swiperefreshlayout.SwipeRefreshLayoutDemoActivity" />
-        <activity android:name=".canvas.CanvasDemoActivity"></activity>
+        <activity android:name=".canvas.CanvasDemoActivity" />
+        <activity android:name=".FragmentTabHost.FragmentTabActivity" />
     </application>
 
 </manifest>

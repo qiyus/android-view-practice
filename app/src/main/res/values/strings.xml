@@ -62,5 +62,12 @@
     <string name="notification_inbox">2016/12/2</string>
     <string name="notification_complete">已经全部完成！</string>
     <string name="indicator">IndicatorProgressBar</string>
+    <string name="one">one</string>
+    <string name="two">two</string>
+    <string name="three">three</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment2">Hello blank fragment 2</string>
+    <string name="hello_blank_fragment3">Hello blank fragment 3</string>
 
 </resources>
