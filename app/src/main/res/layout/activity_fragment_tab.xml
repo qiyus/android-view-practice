@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@color/colorPopupWindow"
+                android:background="@drawable/tab_background"
                 />
             <FrameLayout
                 android:id="@android:id/tabcontent"

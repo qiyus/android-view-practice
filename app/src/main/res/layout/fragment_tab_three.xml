@@ -6,8 +6,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text="@string/three"
-        android:textColor="@drawable/fragment_tab_selector"
-        android:drawableTop="@android:drawable/ic_menu_share"/>
+        android:textColor="@drawable/fragment_tab_text"
+        android:drawableTop="@drawable/fragment_tab_img3"/>
 </LinearLayout>
