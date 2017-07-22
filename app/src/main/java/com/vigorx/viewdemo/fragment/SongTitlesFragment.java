@@ -16,7 +16,6 @@ import com.vigorx.viewdemo.fragment.DummyContent.DummyItem;
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
 public class SongTitlesFragment extends Fragment {
