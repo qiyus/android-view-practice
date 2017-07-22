@@ -1,11 +1,11 @@
-package com.vigorx.viewdemo.FragmentTabHost;
+package com.vigorx.viewdemo.fragmenttabhost;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 
-import com.vigorx.viewdemo.FragmentTabHost.dummy.DummyContent;
+import com.vigorx.viewdemo.fragmenttabhost.dummy.DummyContent;
 import com.vigorx.viewdemo.R;
 
 public class FragmentTabActivity extends FragmentActivity implements OneFragment.OnListFragmentInteractionListener,

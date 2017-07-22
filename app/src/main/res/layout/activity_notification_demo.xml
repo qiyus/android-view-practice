@@ -12,7 +12,7 @@
     tools:context="com.vigorx.viewdemo.notification.NotificationDemoActivity">
 
     <Button
-        android:id="@+id/notification_button1"
+        android:id="@+id/normal_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -20,7 +20,7 @@
         android:text="@string/notification_normal" />
 
     <Button
-        android:id="@+id/notification_button2"
+        android:id="@+id/big_view_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -28,7 +28,7 @@
         android:text="@string/notification_big" />
 
     <Button
-        android:id="@+id/notification_button3"
+        android:id="@+id/big_picture_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -36,7 +36,7 @@
         android:text="@string/notification_big_true" />
 
     <Button
-        android:id="@+id/notification_button4"
+        android:id="@+id/big_box_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -44,7 +44,7 @@
         android:text="@string/notification_big_inbox" />
 
     <Button
-        android:id="@+id/notification_button5"
+        android:id="@+id/custom_view_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -52,7 +52,7 @@
         android:text="@string/notification_custom" />
 
     <Button
-        android:id="@+id/notification_button6"
+        android:id="@+id/application_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -60,7 +60,7 @@
         android:text="@string/notification_back_app" />
 
     <Button
-        android:id="@+id/notification_button7"
+        android:id="@+id/desktop_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -68,12 +68,20 @@
         android:text="@string/notification_back_desk" />
 
     <Button
-        android:id="@+id/notification_button8"
+        android:id="@+id/progress_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
         android:text="@string/notification_progressbar" />
+
+    <Button
+        android:id="@+id/send_broadcast_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/send_broadcast"/>
 
 
 </LinearLayout>

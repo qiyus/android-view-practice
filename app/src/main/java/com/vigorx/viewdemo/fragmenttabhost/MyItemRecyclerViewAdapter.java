@@ -1,4 +1,4 @@
-package com.vigorx.viewdemo.FragmentTabHost;
+package com.vigorx.viewdemo.fragmenttabhost;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.vigorx.viewdemo.FragmentTabHost.OneFragment.OnListFragmentInteractionListener;
-import com.vigorx.viewdemo.FragmentTabHost.dummy.DummyContent.DummyItem;
+import com.vigorx.viewdemo.fragmenttabhost.OneFragment.OnListFragmentInteractionListener;
+import com.vigorx.viewdemo.fragmenttabhost.dummy.DummyContent.DummyItem;
 import com.vigorx.viewdemo.R;
 
 import java.util.List;

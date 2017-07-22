@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.vigorx.viewdemo.FragmentTabHost.OneFragment"
+    tools:context="com.vigorx.viewdemo.fragmenttabhost.OneFragment"
     tools:listitem="@layout/fragment_item" />

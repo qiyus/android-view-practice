@@ -1,4 +1,4 @@
-package com.vigorx.viewdemo.FragmentTabHost.dummy;
+package com.vigorx.viewdemo.fragmenttabhost.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

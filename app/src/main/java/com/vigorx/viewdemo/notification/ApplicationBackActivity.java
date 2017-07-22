@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.vigorx.viewdemo.R;
 
-public class NotificationSpecialActivity extends AppCompatActivity {
+public class ApplicationBackActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification_special);
+        setContentView(R.layout.activity_notification2);
     }
 }

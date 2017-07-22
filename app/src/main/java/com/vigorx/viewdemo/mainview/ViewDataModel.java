@@ -1,6 +1,6 @@
 package com.vigorx.viewdemo.mainview;
 
-import com.vigorx.viewdemo.FragmentTabHost.FragmentTabActivity;
+import com.vigorx.viewdemo.fragmenttabhost.FragmentTabActivity;
 import com.vigorx.viewdemo.canvas.CanvasDemoActivity;
 import com.vigorx.viewdemo.customtab.CustomTabDemoActivity;
 import com.vigorx.viewdemo.dialog.DialogDemoActivity;
@@ -28,11 +28,11 @@ class ViewDataModel implements IMainContract.IViewDataModel {
      * 构造主画面的List数据源。
      */
     ViewDataModel() {
-        addRecord(LifeCycleDemoActivity.class, "activity事件的调用顺序", "AlertDialog|PopupWindow|PopupMenu|ContextMenu|RatingBar|ToggleButton");
-        addRecord(CustomTabDemoActivity.class, "模仿微信的自定义Tab", "ViewPager|Fragment|CustomComponent");
+        addRecord(LifeCycleDemoActivity.class, "Activity Cycle", "AlertDialog|PopupWindow|PopupMenu|ContextMenu|RatingBar|ToggleButton");
+        addRecord(CustomTabDemoActivity.class, "Custom Tab", "ViewPager|Fragment|CustomComponent");
         addRecord(DialogDemoActivity.class, "Dialog Fragment", "DialogFragment|AlertDialog|SimpleCursorAdapter|CursorLoader|Contacts");
         addRecord(ProgressDemoActivity.class, "ProgressBar", "ProgressBar|RatingBar|SeekBar");
-        addRecord(FragmentDemoActivity.class, "Fragment通信", "Fragment|RecyclerView");
+        addRecord(FragmentDemoActivity.class, "Fragment", "Fragment|RecyclerView");
         addRecord(ViewPagerDemoActivity.class, "Viewpager", "FragmentPagerAdapter|PagerAdapter|FragmentPagerStateAdapter");
         addRecord(ViewFlipperDemoActivity.class, "ViewFlipper", "ViewFlipper|GestureDetector");
         addRecord(NotificationDemoActivity.class, "Notification", "NotificationCompat|PendingIntent|NotificationManager|RemoteViews");

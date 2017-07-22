@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature
@@ -55,12 +56,12 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".notification.NotificationSpecialActivity"
+            android:name=".notification.DesktopBackActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="" />
         <activity
-            android:name=".notification.Notification2Activity"
+            android:name=".notification.ApplicationBackActivity"
             android:parentActivityName=".mainview.MainActivity">
 
             <!-- api 16 需要以下定义 -->
@@ -70,7 +71,14 @@
         </activity>
         <activity android:name=".swiperefreshlayout.SwipeRefreshLayoutDemoActivity" />
         <activity android:name=".canvas.CanvasDemoActivity" />
-        <activity android:name=".FragmentTabHost.FragmentTabActivity" />
+        <activity android:name=".fragmenttabhost.FragmentTabActivity" />
+
+        <receiver android:name=".notification.NotificationReceiver" >
+            <intent-filter>
+                <action android:name="view.demo.notification.SendBroadcast"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

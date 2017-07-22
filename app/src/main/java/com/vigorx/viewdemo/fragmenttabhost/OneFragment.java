@@ -1,4 +1,4 @@
-package com.vigorx.viewdemo.FragmentTabHost;
+package com.vigorx.viewdemo.fragmenttabhost;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.vigorx.viewdemo.FragmentTabHost.dummy.DummyContent;
-import com.vigorx.viewdemo.FragmentTabHost.dummy.DummyContent.DummyItem;
+import com.vigorx.viewdemo.fragmenttabhost.dummy.DummyContent;
+import com.vigorx.viewdemo.fragmenttabhost.dummy.DummyContent.DummyItem;
 import com.vigorx.viewdemo.R;
 
 /**
