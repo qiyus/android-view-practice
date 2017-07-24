@@ -73,5 +73,12 @@
     <string name="broadcast_message">内部发送的广播消息</string>
     <string name="send_broadcast">send broadcast</string>
     <string name="notification_title_broadcast">Broadcast</string>
+    <string name="title_activity_action">ActionActivity</string>
+    <string name="baidu">http://www.baidu.com</string>
+    <string name="send_mail">send mail</string>
+    <string name="open_web">open web</string>
+    <string name="open_file">open file</string>
+    <string name="share_select">share select</string>
+    <string name="mail_waxwork">waxwork@hotmail.com</string>
 
 </resources>

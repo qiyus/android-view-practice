@@ -73,12 +73,16 @@
         <activity android:name=".canvas.CanvasDemoActivity" />
         <activity android:name=".fragmenttabhost.FragmentTabActivity" />
 
-        <receiver android:name=".notification.NotificationReceiver" >
+        <receiver android:name=".notification.NotificationReceiver">
             <intent-filter>
-                <action android:name="view.demo.notification.SendBroadcast"/>
+                <action android:name="view.demo.notification.SendBroadcast" />
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".action.ActionActivity"
+            android:label="@string/title_activity_action"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
