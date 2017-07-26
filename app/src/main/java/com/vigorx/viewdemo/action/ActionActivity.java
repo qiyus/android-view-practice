@@ -73,10 +73,17 @@ public class ActionActivity extends AppCompatActivity implements View.OnClickLis
      * 发送Mail
      */
     private void sendMail() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, getString(R.string.mail_waxwork));
+//        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+//        emailIntent.setType("text/plain");
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"jon@example.com"}); // recipients
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email subject");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message text");
+//        emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("content://path/to/email/attachment"));
+
         try {
-            startActivity(intent);
+            startActivity(emailIntent);
         }
         catch (ActivityNotFoundException exception) {
             showMessage();
