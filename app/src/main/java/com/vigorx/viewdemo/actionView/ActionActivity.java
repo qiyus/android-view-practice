@@ -1,4 +1,4 @@
-package com.vigorx.viewdemo.action;
+package com.vigorx.viewdemo.actionView;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;

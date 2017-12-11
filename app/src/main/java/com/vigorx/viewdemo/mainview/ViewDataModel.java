@@ -1,6 +1,6 @@
 package com.vigorx.viewdemo.mainview;
 
-import com.vigorx.viewdemo.action.ActionActivity;
+import com.vigorx.viewdemo.actionView.ActionActivity;
 import com.vigorx.viewdemo.fragmenttabhost.FragmentTabActivity;
 import com.vigorx.viewdemo.canvas.CanvasDemoActivity;
 import com.vigorx.viewdemo.customtab.CustomTabDemoActivity;

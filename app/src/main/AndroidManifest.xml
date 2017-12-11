@@ -80,7 +80,7 @@
         </receiver>
 
         <activity
-            android:name=".action.ActionActivity"
+            android:name=".actionView.ActionActivity"
             android:label="@string/title_activity_action"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
