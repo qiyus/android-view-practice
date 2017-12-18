@@ -29,13 +29,14 @@ public class MainActivity extends AppCompatActivity {
     private DividerItemDecoration mDividerItemDecoration;
     private DividerDecoration mListDividerDecoration;
     private DividerDecoration mGridDividerDecoration;
+    private DividerDecoration mCardDividerDecoration;
     private List<MainDataItem> mData;
     private GridLayoutManager mGridLayoutManager;
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
     private LinearLayoutManager mListLayoutManager;
     private MainListAdapter mListAdapter;
     private MainGridAdapter mGridAdapter;
-    private MainGridAdapter mStaggeredAdapter;
+    private MainCardAdapter mStaggeredAdapter;
     private static final int GRID_SPAN_COUNT = 2;
 
     @Override
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         // 设置Item之间间隔样式
         mListDividerDecoration = new LineDecoration(this, LineDecoration.VERTICAL_LIST);
         mGridDividerDecoration = new RectangleDecoration(this);
+        mCardDividerDecoration = null;
         mDividerItemDecoration = new DividerItemDecoration(mListDividerDecoration);
         mRecyclerView.addItemDecoration(mDividerItemDecoration);
 
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         // 设置adapter
         mListAdapter = new MainListAdapter(mData);
         mGridAdapter = new MainGridAdapter(this, mData, GRID_SPAN_COUNT);
-        mStaggeredAdapter = new MainGridAdapter(this, mData, GRID_SPAN_COUNT);
+        mStaggeredAdapter = new MainCardAdapter(mData);
         mRecyclerView.setAdapter(mListAdapter);
 
         /*// 设置点击事件另一种方法。
@@ -129,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             setMainList(mGridAdapter, mGridDividerDecoration, mGridLayoutManager);
             return true;
         } else if (id == R.id.action_staggered) {
-            setMainList(mStaggeredAdapter, mGridDividerDecoration, mStaggeredGridLayoutManager);
+            setMainList(mStaggeredAdapter, mCardDividerDecoration, mStaggeredGridLayoutManager);
             return true;
         }
         return super.onOptionsItemSelected(item);

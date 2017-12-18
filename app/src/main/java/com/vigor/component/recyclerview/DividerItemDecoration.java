@@ -23,6 +23,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        mDecoration.draw(c, parent);
+        if (mDecoration != null) {
+            mDecoration.draw(c, parent);
+        }
     }
 }
