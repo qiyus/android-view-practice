@@ -65,6 +65,15 @@ public class MainActivity extends AppCompatActivity {
         // 设置布局管理器
         mListLayoutManager = new LinearLayoutManager(this);
         mGridLayoutManager = new GridLayoutManager(this, GRID_SPAN_COUNT);
+        mGridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (mData.get(position).getClassName() == null) {
+                    return GRID_SPAN_COUNT;
+                }
+                return 1;
+            }
+        });
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(GRID_SPAN_COUNT,
                 OrientationHelper.VERTICAL);
         mRecyclerView.setLayoutManager(mListLayoutManager);

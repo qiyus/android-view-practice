@@ -19,7 +19,10 @@ import java.util.List;
  * 主画面列表的Adapter
  */
 
-public class MainGridAdapter extends RecyclerView.Adapter<MainGridAdapter.ViewHolder>{
+public class MainGridAdapter extends RecyclerView.Adapter<MainGridAdapter.ViewHolder> {
+    private static final int UN_IMPLEMENTS = 0;
+    private static final int IMPLEMENTS = 1;
+
     private List<MainDataItem> mData;
     private Context mContext;
     private int mSpanCount;
@@ -43,15 +46,26 @@ public class MainGridAdapter extends RecyclerView.Adapter<MainGridAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(
-                parent.getContext()).inflate(R.layout.item_main_grid, parent, false);
+        View v;
+        if (viewType == IMPLEMENTS) {
+            v = LayoutInflater.from(
+                    parent.getContext()).inflate(R.layout.item_main_grid, parent, false);
+        } else {
+            v = LayoutInflater.from(
+                    parent.getContext()).inflate(R.layout.item_main_grid2, parent, false);
+        }
+
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
     @Override
     public int getItemViewType(int position) {
-        return super.getItemViewType(position);
+        MainDataItem item = mData.get(position);
+        if (item.getClassName() == null) {
+            return UN_IMPLEMENTS;
+        }
+        return IMPLEMENTS;
     }
 
     @Override
@@ -72,14 +86,14 @@ public class MainGridAdapter extends RecyclerView.Adapter<MainGridAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return mData.size() ;
+        return mData.size();
     }
 
     private int getImageHeight(int resId, int offset, int spanCount) {
-        AppCompatActivity activity = (AppCompatActivity)mContext;
+        AppCompatActivity activity = (AppCompatActivity) mContext;
         DisplayMetrics dm = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        float width = (float)(dm.widthPixels - offset) / spanCount;
+        float width = (float) (dm.widthPixels - offset) / spanCount;
         Drawable drawable = activity.getDrawable(resId);
         float scale = drawable.getIntrinsicWidth() / width;
         return Math.round(drawable.getIntrinsicHeight() / scale);

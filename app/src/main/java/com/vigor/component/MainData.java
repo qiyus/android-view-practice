@@ -46,7 +46,8 @@ public class MainData {
         mData.add(new MainDataItem(SurfaceViewDemoActivity.class, "SurfaceView", R.drawable.surfaceview));
         mData.add(new MainDataItem(CanvasDemoActivity.class, "Canvas", R.drawable.canvas));
         mData.add(new MainDataItem(FragmentTabActivity.class, "FragmentTabHost", R.drawable.fragementtab));
-        mData.add(new MainDataItem(CommonIntentDemoActivity.class, "Action view send", R.drawable.popupwindow));
+        mData.add(new MainDataItem(CommonIntentDemoActivity.class, "Action view send", R.drawable.commonintent));
+        mData.add(new MainDataItem(null, "Card View", R.drawable.commonintent));
     }
 
     public List<MainDataItem> getRecordList() {
