@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.vigorx.viewdemo.customtab.CustomTabDemoActivity" >
+    tools:context="com.vigor.component.customtab.CustomTabDemoActivity" >
 
     <android.support.v4.view.ViewPager
         android:id="@+id/id_viewpager"
@@ -18,7 +18,7 @@
         android:layout_height="60dp"
         android:orientation="horizontal">
 
-        <com.vigorx.viewdemo.customtab.TabLabel
+        <com.vigor.component.customtab.TabLabel
             android:id="@+id/id_button_event"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -30,7 +30,7 @@
             customtab:tab_text_size="12sp"
             />
 
-        <com.vigorx.viewdemo.customtab.TabLabel
+        <com.vigor.component.customtab.TabLabel
             android:id="@+id/id_button_diary"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -41,7 +41,7 @@
             customtab:tab_color="#ff45c01a"
             customtab:tab_text_size="12sp"
             />
-        <com.vigorx.viewdemo.customtab.TabLabel
+        <com.vigor.component.customtab.TabLabel
             android:id="@+id/id_button_trace"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -52,7 +52,7 @@
             customtab:tab_color="#ff45c01a"
             customtab:tab_text_size="12sp"
             />
-        <com.vigorx.viewdemo.customtab.TabLabel
+        <com.vigor.component.customtab.TabLabel
             android:id="@+id/id_button_milepost"
             android:layout_width="0dp"
             android:layout_weight="1"

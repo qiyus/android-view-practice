@@ -8,9 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.vigorx.viewdemo.canvas.CanvasDemoActivity">
+    tools:context="com.vigor.component.canvas.CanvasDemoActivity">
 
-    <com.vigorx.viewdemo.canvas.CanvasView
+    <com.vigor.component.canvas.CanvasView
         android:id="@+id/canvas_path"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

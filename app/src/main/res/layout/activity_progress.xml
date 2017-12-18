@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.vigorx.viewdemo.progressbar.ProgressDemoActivity">
+    tools:context="com.vigor.component.progressbar.ProgressDemoActivity">
 
     <TextView
         android:id="@+id/progress_horizontal"
@@ -91,7 +91,7 @@
         android:layout_gravity="center"
         android:text="@string/indicator" />
 
-    <com.vigorx.viewdemo.progressbar.IndicatorProgressBar
+    <com.vigor.component.progressbar.IndicatorProgressBar
         android:id="@+id/indicator_progress_bar"
         style="@style/Widget.ProgressBar.IndicatorProgressBar"
         offset="3dip"

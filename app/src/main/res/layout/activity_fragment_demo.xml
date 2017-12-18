@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context="com.vigorx.viewdemo.fragment.FragmentDemoActivity">
+    tools:context="com.vigor.component.fragment.FragmentDemoActivity">
 
     <fragment
         android:id="@+id/song_titles_fragment"
-        class="com.vigorx.viewdemo.fragment.SongTitlesFragment"
+        class="com.vigor.component.fragment.SongTitlesFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

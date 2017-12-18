@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.vigorx.viewdemo.viewflipper.ViewFlipperDemoActivity">
+    tools:context="com.vigor.component.viewflipper.ViewFlipperDemoActivity">
 
     <ViewFlipper
         android:id="@+id/view_flipper"

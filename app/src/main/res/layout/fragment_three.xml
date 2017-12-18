@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.vigorx.viewdemo.fragmenttabhost.ThreeFragment">
+    tools:context="com.vigor.component.fragmenttabhost.ThreeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

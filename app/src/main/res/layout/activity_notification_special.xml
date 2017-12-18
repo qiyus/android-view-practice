@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.vigorx.viewdemo.notification.DesktopBackActivity">
+    tools:context="com.vigor.component.notification.DesktopBackActivity">
 
     <TextView
         android:layout_width="match_parent"

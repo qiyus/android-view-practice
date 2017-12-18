@@ -9,5 +9,5 @@
     android:layout_margin="16dp"
     android:background="@drawable/layer_bg"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.vigorx.viewdemo.fragment.SongTitlesFragment"
+    tools:context="com.vigor.component.fragment.SongTitlesFragment"
     tools:listitem="@layout/fragment_song_title" />

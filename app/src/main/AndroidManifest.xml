@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vigorx.viewdemo">
+    package="com.vigor.component">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -17,14 +17,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".ViewDemoApplication"
+        android:name="com.vigor.component.DemoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".mainview.MainActivity"
+            android:name="com.vigor.component.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
@@ -34,19 +34,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dialog.DialogDemoActivity" />
+        <activity android:name="com.vigor.component.dialog.DialogDemoActivity" />
         <activity
-            android:name=".lifecycle.LifeCycleDemoActivity"
+            android:name="com.vigor.component.lifecycle.LifeCycleDemoActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:label="@string/activity_name_lifecycle" />
-        <activity android:name=".progressbar.ProgressDemoActivity" />
-        <activity android:name=".viewpager.ViewPagerDemoActivity" />
-        <activity android:name=".pdfview.PDFViewDemoActivity" />
-        <activity android:name=".customtab.CustomTabDemoActivity" />
-        <activity android:name=".fragment.FragmentDemoActivity" />
-        <activity android:name=".surfaceview.SurfaceViewDemoActivity" />
-        <activity android:name=".viewflipper.ViewFlipperDemoActivity" />
-        <activity android:name=".notification.NotificationDemoActivity" />
+        <activity android:name="com.vigor.component.progressbar.ProgressDemoActivity" />
+        <activity android:name="com.vigor.component.viewpager.ViewPagerDemoActivity" />
+        <activity android:name="com.vigor.component.pdfview.PDFViewDemoActivity" />
+        <activity android:name="com.vigor.component.customtab.CustomTabDemoActivity" />
+        <activity android:name="com.vigor.component.fragment.FragmentDemoActivity" />
+        <activity android:name="com.vigor.component.surfaceview.SurfaceViewDemoActivity" />
+        <activity android:name="com.vigor.component.viewflipper.ViewFlipperDemoActivity" />
+        <activity android:name="com.vigor.component.notification.NotificationDemoActivity" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -56,33 +56,33 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".notification.DesktopBackActivity"
+            android:name="com.vigor.component.notification.DesktopBackActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="" />
         <activity
-            android:name=".notification.ApplicationBackActivity"
-            android:parentActivityName=".mainview.MainActivity">
+            android:name="com.vigor.component.notification.ApplicationBackActivity"
+            android:parentActivityName="com.vigor.component.demo.MainActivity">
 
             <!-- api 16 需要以下定义 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".mainview.MainActivity" />
+                android:value="com.vigor.component.MainActivity" />
         </activity>
-        <activity android:name=".swiperefreshlayout.SwipeRefreshLayoutDemoActivity" />
-        <activity android:name=".canvas.CanvasDemoActivity" />
-        <activity android:name=".fragmenttabhost.FragmentTabActivity" />
+        <activity android:name="com.vigor.component.swiperefreshlayout.SwipeRefreshLayoutDemoActivity" />
+        <activity android:name="com.vigor.component.canvas.CanvasDemoActivity" />
+        <activity android:name="com.vigor.component.fragmenttabhost.FragmentTabActivity" />
 
-        <receiver android:name=".notification.NotificationReceiver">
+        <receiver android:name="com.vigor.component.notification.NotificationReceiver">
             <intent-filter>
                 <action android:name="view.demo.notification.SendBroadcast" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name=".actionView.ActionActivity"
+            android:name="com.vigor.component.commonintent.CommonIntentDemoActivity"
             android:label="@string/title_activity_action"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

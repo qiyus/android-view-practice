@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.vigorx.viewdemo.notification.ApplicationBackActivity">
+    tools:context="com.vigor.component.notification.ApplicationBackActivity">
 
     <TextView
         android:text="Notification2Activity 设置为当前Activity栈的父，回退返回Activity栈"
