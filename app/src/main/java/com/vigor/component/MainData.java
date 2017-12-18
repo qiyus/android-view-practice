@@ -1,5 +1,6 @@
 package com.vigor.component;
 
+import com.vigor.component.boundedbitmap.BoundedBitmapDemoActivity;
 import com.vigor.component.commonintent.CommonIntentDemoActivity;
 import com.vigor.component.canvas.CanvasDemoActivity;
 import com.vigor.component.customtab.CustomTabDemoActivity;
@@ -47,7 +48,7 @@ public class MainData {
         mData.add(new MainDataItem(CanvasDemoActivity.class, "Canvas", R.drawable.canvas));
         mData.add(new MainDataItem(FragmentTabActivity.class, "FragmentTabHost", R.drawable.fragementtab));
         mData.add(new MainDataItem(CommonIntentDemoActivity.class, "Action view send", R.drawable.commonintent));
-        mData.add(new MainDataItem(null, "Card View", R.drawable.commonintent));
+        mData.add(new MainDataItem(BoundedBitmapDemoActivity.class, "Bounded bitmap", R.drawable.commonintent));
     }
 
     public List<MainDataItem> getRecordList() {
