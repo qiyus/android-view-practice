@@ -48,7 +48,7 @@ public class MainData {
         mData.add(new MainDataItem(CanvasDemoActivity.class, "Canvas", R.drawable.canvas));
         mData.add(new MainDataItem(FragmentTabActivity.class, "FragmentTabHost", R.drawable.fragementtab));
         mData.add(new MainDataItem(CommonIntentDemoActivity.class, "Action view send", R.drawable.commonintent));
-        mData.add(new MainDataItem(BoundedBitmapDemoActivity.class, "Bounded bitmap", R.drawable.commonintent));
+        mData.add(new MainDataItem(BoundedBitmapDemoActivity.class, "RoundedBitmapDrawable", R.drawable.roundedbitmap));
     }
 
     public List<MainDataItem> getRecordList() {
