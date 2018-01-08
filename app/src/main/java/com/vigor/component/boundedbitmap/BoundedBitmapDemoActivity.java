@@ -39,7 +39,6 @@ public class BoundedBitmapDemoActivity extends AppCompatActivity {
         circleDrawable.setCircular(true);
         ImageView imageCircle = (ImageView) findViewById(R.id.imageView_liu_circle);
         imageCircle.setImageDrawable(circleDrawable);
-        dst.recycle();
     }
 
     /**
@@ -54,7 +53,6 @@ public class BoundedBitmapDemoActivity extends AppCompatActivity {
         circleDrawable.setCircular(true);
         ImageView imageCircle = (ImageView) findViewById(R.id.imageView_line);
         imageCircle.setImageDrawable(circleDrawable);
-        dst.recycle();
     }
 
     /**
@@ -68,7 +66,6 @@ public class BoundedBitmapDemoActivity extends AppCompatActivity {
         roundedDrawable.setCornerRadius(CORNER_RADIUS);
         ImageView imageRadius = (ImageView) findViewById(R.id.imageView_liu_radius);
         imageRadius.setImageDrawable(roundedDrawable);
-        src.recycle();
     }
 
     /**
@@ -103,7 +100,6 @@ public class BoundedBitmapDemoActivity extends AppCompatActivity {
             dst = Bitmap.createBitmap(src, 0, src.getHeight() / 2 - src.getWidth() / 2,
                     src.getWidth(), src.getWidth());
         }
-        src.recycle();
         return dst;
     }
 }
