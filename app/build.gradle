@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         debug {
-
+            ext.alwaysUpdateBuildId = false
         }
         release {
             minifyEnabled false

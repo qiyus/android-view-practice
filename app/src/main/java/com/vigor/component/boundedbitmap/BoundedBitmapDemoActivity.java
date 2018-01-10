@@ -26,6 +26,7 @@ public class BoundedBitmapDemoActivity extends AppCompatActivity {
         setCircleBitmap();
         setRoundedBitmap();
         setCircleBitmapWithLine();
+        
     }
 
     /**
